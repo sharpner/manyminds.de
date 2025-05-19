@@ -397,14 +397,18 @@
         width: 100%;
         max-width: 300px;
         height: 533px; /* Maintains 576:1024 aspect ratio scaled down */
-        background-color: #00ff00; /* Bright green placeholder */
         border-radius: 8px;
         align-self: center;
         box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
         position: relative;
         overflow: hidden;
+        background-color: #00ff00; /* Default placeholder color */
+        background-image: url("images/me.jpg"); /* Empty by default, to be filled with real image path */
+        background-size: cover;
+        background-position: center;
       }
 
+      /* This will only show if no background image is set */
       .profile-image::after {
         content: "Profilbild";
         position: absolute;
@@ -414,6 +418,8 @@
         color: black;
         font-weight: bold;
         font-size: 1.2rem;
+        /* This will be hidden when an actual image is set */
+        display: var(--placeholder-visibility, block);
       }
 
       .profile-text {
@@ -639,7 +645,7 @@
             <li>Strategische Beratungsdienstleistungen</li>
             <li>Entscheidungsunterstützung für Technologieinvestitionen</li>
             <li>Implementierungsüberwachung</li>
-            <li>Executive Education und Kompetenzaufbau</li>
+            <li>Kompetenzaufbau</li>
           </ul>
         </div>
 
@@ -668,9 +674,9 @@
         <h2>Ihr nächster <span class="gradient-text">Schritt</span></h2>
 
         <p>
-          Vereinbaren Sie jetzt Ihr KI-Potenzial-Assessment und sichern Sie sich
-          einen Implementierungsvorsprung von mindestens zwei Quartalen
-          gegenüber Ihren Wettbewerbern.
+          Buchen sie jetzt einen ersten Beratungstermin und helfen sie mir Ihr
+          Team zu schulen. So sichern Sie sich einen erheblichen
+          Implementierungsvorsprung gegenüber Ihren Wettbewerbern.
         </p>
 
         <div class="text-box">
@@ -686,7 +692,7 @@
           <h3>Über mich</h3>
 
           <div class="profile-container">
-            <div class="profile-image"></div>
+            <div class="profile-image" id="profileImage"></div>
             <div class="profile-text">
               <p>
                 Mit über 15 Jahren Berufserfahrung im gesamten
@@ -794,6 +800,23 @@
             }
           });
         });
+
+        // Function to set profile image
+        function setProfileImage(imageSrc) {
+          const profileImg = document.getElementById("profileImage");
+          if (profileImg && imageSrc) {
+            profileImg.style.backgroundImage = `url('${imageSrc}')`;
+            // Hide the placeholder text when an image is set
+            document.documentElement.style.setProperty(
+              "--placeholder-visibility",
+              "none",
+            );
+          }
+        }
+
+        // You can call this function to set your image
+        // Example: setProfileImage('path/to/your/image.jpg');
+        // For now it's using the placeholder
       });
     </script>
   </body>
