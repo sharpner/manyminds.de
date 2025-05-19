@@ -717,17 +717,17 @@
 
         <div class="text-box">
           <h3>Kontakt</h3>
-          <p>
-            n.wagensonner@manyminds.de<br />
-            +49 176 624 224 77
-          </p>
+          <p>n.wagensonner@manyminds.de<br /></p>
 
           <p>
             Standort: Unterschleißheim, Deutschland<br />
             Verfügbar für Remote- und Vor-Ort-Einsätze
           </p>
 
-          <button class="btn">Beratungsgespräch vereinbaren</button>
+          <a
+            href="mailto:n.wagensonner@manyminds.de?subject=Beratungsgespräch%20vereinbaren"
+            ><button class="btn">Beratungsgespräch vereinbaren</button>
+          </a>
         </div>
       </div>
 
@@ -801,7 +801,6 @@
           });
         });
 
-        // Function to set profile image
         function setProfileImage(imageSrc) {
           const profileImg = document.getElementById("profileImage");
           if (profileImg && imageSrc) {
@@ -814,9 +813,7 @@
           }
         }
 
-        // You can call this function to set your image
-        // Example: setProfileImage('path/to/your/image.jpg');
-        // For now it's using the placeholder
+        setProfileImage("images/me.png");
       });
     </script>
   </body>
