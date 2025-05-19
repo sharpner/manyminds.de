@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KI-Transformation | Strategische Beratung</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+      :root {
+        --bg-color: #0f0f11;
+        --card-bg: #16161a;
+        --text-box-bg: rgba(255, 255, 255, 0.03);
+        --text-primary: #ffffff;
+        --text-secondary: rgba(255, 255, 255, 0.7);
+        --accent-warm: #e8d9bc;
+        --accent-yellow: #e6b15c;
+        --accent-red: #ff5757;
+        --accent-purple: #b967ff;
+        --border-radius: 16px;
+        --box-radius: 12px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-primary);
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        line-height: 1.6;
+        overflow-x: hidden;
+        position: relative;
+        min-height: 100vh;
+        padding: 0;
+      }
+
+      /* Navigation styles */
+      .nav-container {
+        position: sticky;
+        top: 0;
+        background-color: rgba(15, 15, 17, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 100;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .logo-nav {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        text-decoration: none;
+        letter-spacing: -0.01em;
+      }
+
+      .nav-items {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .nav-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: color 0.2s ease;
+        white-space: nowrap;
+      }
+
+      .nav-link:hover {
+        color: var(--text-primary);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* Blurred circle backgrounds */
+      .blur-circle {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.25;
+        z-index: 0;
+      }
+
+      .blur-1 {
+        width: 500px;
+        height: 500px;
+        background: var(--accent-yellow);
+        top: -100px;
+        right: -150px;
+      }
+
+      .blur-2 {
+        width: 450px;
+        height: 450px;
+        background: var(--accent-red);
+        bottom: -100px;
+        left: -100px;
+      }
+
+      .blur-3 {
+        width: 350px;
+        height: 350px;
+        background: var(--accent-purple);
+        top: 30%;
+        left: 20%;
+      }
+
+      /* Content container */
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+        padding: 2rem;
+      }
+
+      /* Typography */
+      h1 {
+        font-size: 3.6rem;
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.02em;
+      }
+
+      h2 {
+        font-size: 2.4rem;
+        font-weight: 700;
+        margin-bottom: 1.25rem;
+        margin-top: 2.5rem;
+        letter-spacing: -0.01em;
+      }
+
+      h3 {
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        margin-top: 2rem;
+        letter-spacing: -0.01em;
+      }
+
+      p {
+        font-size: 1.125rem;
+        margin-bottom: 1.25rem;
+        color: var(--text-secondary);
+        max-width: 85ch;
+      }
+
+      /* LAB-optimized Gradient text effects */
+      .gradient-text {
+        /* LAB-optimized gradient ensuring perceptual uniformity in brightness */
+        background: linear-gradient(
+          90deg,
+          #e6b15c 0%,
+          /* LAB: L=75, a=10, b=50 */ #e88c65 30%,
+          /* LAB: L=75, a=25, b=30 */ #dc7ba8 70%,
+          /* LAB: L=75, a=35, b=-5 */ #a586e5 100% /* LAB: L=75, a=15, b=-30 */
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        display: inline-block;
+      }
+
+      .warm-gradient {
+        /* Warmer LAB-optimized gradient with consistent lightness */
+        background: linear-gradient(
+          90deg,
+          #e6b15c 0%,
+          /* LAB: L=75, a=10, b=50 */ #e88c65 45%,
+          /* LAB: L=75, a=25, b=30 */ #e96b6b 100% /* LAB: L=75, a=40, b=15 */
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        display: inline-block;
+      }
+
+      /* Card styles */
+      .card {
+        background-color: var(--card-bg);
+        border-radius: var(--border-radius);
+        padding: 2.5rem;
+        margin-top: 2.5rem;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        scroll-margin-top: 80px; /* For smooth scrolling with fixed header */
+      }
+
+      .card p {
+        font-size: 1.125rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .card p strong {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      .card + .card {
+        margin-top: 3rem;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        /* LAB-optimized gradient ensuring perceptual uniformity */
+        background: linear-gradient(
+          90deg,
+          #e6b15c,
+          /* LAB: L=75, a=10, b=50 */ #e88c65,
+          /* LAB: L=75, a=25, b=30 */ #dc7ba8,
+          /* LAB: L=75, a=35, b=-5 */ #a586e5,
+          /* LAB: L=75, a=15, b=-30 */ #e6b15c
+            /* LAB: L=75, a=10, b=50 (for looping) */
+        );
+        background-size: 400% 400%;
+        border-radius: calc(var(--border-radius) + 2px);
+        z-index: -1;
+        animation: borderGlow 8s ease infinite;
+        opacity: 0.7;
+      }
+
+      @keyframes borderGlow {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Text box styles */
+      .text-box {
+        background-color: var(--text-box-bg);
+        border-radius: var(--box-radius);
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .text-box:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .text-box h3 {
+        margin-top: 0;
+        font-size: 1.5rem;
+      }
+
+      .text-box p:last-child {
+        margin-bottom: 0;
+      }
+
+      .highlight-box {
+        background: linear-gradient(
+          90deg,
+          rgba(230, 177, 92, 0.05) 0%,
+          rgba(232, 140, 101, 0.05) 100%
+        );
+        border-left: 3px solid var(--accent-yellow);
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .highlight-box p {
+        margin-bottom: 0;
+      }
+
+      /* Service lists */
+      .service-list {
+        list-style-type: none;
+        margin-left: 0.5rem;
+        margin-bottom: 0;
+      }
+
+      .service-list li {
+        position: relative;
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+      }
+
+      .service-list li:last-child {
+        margin-bottom: 0;
+      }
+
+      .service-list li strong {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      .service-list li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--accent-yellow);
+        font-weight: bold;
+      }
+
+      /* Button */
+      .btn {
+        display: inline-block;
+        background-color: transparent;
+        color: var(--text-primary);
+        font-size: 1.1rem;
+        font-weight: 500;
+        padding: 0.9rem 2rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* LAB-optimized gradient ensuring perceptual uniformity */
+        background: linear-gradient(
+          90deg,
+          #e6b15c,
+          /* LAB: L=75, a=10, b=50 */ #e88c65 /* LAB: L=75, a=25, b=30 */
+        );
+        z-index: -1;
+        transition: opacity 0.3s ease;
+        opacity: 0.9;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(230, 177, 92, 0.2);
+      }
+
+      .btn:hover::before {
+        opacity: 1;
+      }
+
+      /* Profile section and image */
+      .profile-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+
+      .profile-image {
+        width: 100%;
+        max-width: 300px;
+        height: 533px; /* Maintains 576:1024 aspect ratio scaled down */
+        background-color: #00ff00; /* Bright green placeholder */
+        border-radius: 8px;
+        align-self: center;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .profile-image::after {
+        content: "Profilbild";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: black;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .profile-text {
+        flex: 1;
+      }
+
+      @media (min-width: 768px) {
+        .profile-container {
+          flex-direction: row;
+          align-items: flex-start;
+        }
+
+        .profile-image {
+          flex-shrink: 0;
+        }
+      }
+
+      /* Footer and impressum */
+      .footer {
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      .impressum {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        scroll-margin-top: 80px;
+      }
+
+      .impressum h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+      }
+
+      .impressum p {
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+      }
+
+      /* Mobile responsiveness */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.5rem;
+        }
+
+        h2 {
+          font-size: 1.8rem;
+        }
+
+        h3 {
+          font-size: 1.4rem;
+        }
+
+        .card {
+          padding: 1.5rem;
+        }
+
+        .nav-items {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          flex-direction: column;
+          background-color: var(--card-bg);
+          padding: 1rem;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+          gap: 1rem;
+        }
+
+        .nav-items.active {
+          display: flex;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="nav-container">
+      <div class="nav-content">
+        <a href="#" class="logo-nav">NexusAI</a>
+        <div class="nav-items" id="navItems">
+          <a href="#early-adopter" class="nav-link">Early-Adopter-Vorteil</a>
+          <a href="#leistungen" class="nav-link">Leistungen</a>
+          <a href="#ansatz" class="nav-link">Ansatz</a>
+          <a href="#kontakt" class="nav-link">Kontakt</a>
+          <a href="#impressum" class="nav-link">Impressum</a>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+      </div>
+    </nav>
+
+    <!-- Blurred background circles -->
+    <div class="blur-circle blur-1"></div>
+    <div class="blur-circle blur-2"></div>
+    <div class="blur-circle blur-3"></div>
+
+    <div class="container">
+      <h1>
+        Strategische <span class="warm-gradient">KI-Beratung</span> &
+        Implementierung
+      </h1>
+
+      <p>
+        Transformieren Sie Ihr Unternehmen mit erfahrener KI-Expertise.
+        Umfassende strategische Unterstützung für Organisationen auf ihrem Weg
+        der KI-Transformation, mit Fokus auf pragmatische Lösungen, die
+        messbaren Geschäftswert liefern.
+      </p>
+
+      <div class="card" id="early-adopter">
+        <h2>
+          Der <span class="gradient-text">Early-Adopter-Vorteil</span> in KI
+        </h2>
+
+        <p>
+          Die Implementierung von KI ist keine Frage des "Ob", sondern des
+          "Wann" – und das "Wann" ist entscheidend für Ihren Wettbewerbsvorteil:
+        </p>
+
+        <div class="text-box">
+          <ul class="service-list">
+            <li>
+              <strong>Datenvorsprung aufbauen:</strong> Frühe KI-Implementierung
+              bedeutet früheren Start der Datensammlung und -analyse. Dieser
+              kumulierte Datenschatz wird zum uneinholbaren Wettbewerbsvorteil.
+            </li>
+            <li>
+              <strong>Kostenvorteil sichern:</strong> Unternehmen, die
+              frühzeitig in KI investieren, profitieren typischerweise von
+              erheblich niedrigeren Implementierungskosten im Vergleich zu
+              späteren Adoptern, die komplexere Legacy-Systeme integrieren
+              müssen.
+            </li>
+            <li>
+              <strong>Organisationales Lernen:</strong> Die frühzeitige
+              Integration von KI schafft eine Lernkurve für Ihre gesamte
+              Organisation, die Wettbewerber nicht über Nacht aufholen können.
+            </li>
+            <li>
+              <strong>Talentmagnet werden:</strong> Unternehmen mit
+              fortschrittlichen KI-Initiativen ziehen die besten Talente an und
+              halten sie – ein kritischer Vorteil in Zeiten des
+              Fachkräftemangels.
+            </li>
+          </ul>
+        </div>
+
+        <h2>
+          Das sich schließende
+          <span class="gradient-text">Zeitfenster</span> für maximalen KI-ROI
+        </h2>
+
+        <p>Die KI-Landschaft entwickelt sich exponentiell. Studien zeigen:</p>
+
+        <div class="text-box">
+          <ul class="service-list">
+            <li>
+              Bis Ende 2025 werden die meisten Unternehmen signifikante
+              KI-Investitionen getätigt haben – wer dann erst beginnt, startet
+              mit erheblichem Rückstand.
+            </li>
+            <li>
+              Die durchschnittliche Zeit bis zum positiven ROI bei KI-Projekten
+              verlängert sich für Nachzügler deutlich.
+            </li>
+            <li>
+              Frühe KI-Adopter erzielen nachweislich höhere Returns im Vergleich
+              zu späteren Implementierungen.
+            </li>
+            <li>
+              Der Vorsprung durch frühzeitige KI-Integration ist kumulativ – je
+              früher Sie beginnen, desto größer wird Ihr Wettbewerbsvorteil mit
+              jedem Quartal.
+            </li>
+          </ul>
+        </div>
+
+        <div class="highlight-box">
+          <p>
+            <strong
+              >Das Zeitfenster für maximalen Return on Investment schließt sich.
+              Unternehmen, die jetzt handeln, sichern sich nicht nur
+              kurzfristige Vorteile, sondern bauen eine langfristige
+              Marktposition auf, die später nur mit unverhältnismäßigem Aufwand
+              einzuholen ist.</strong
+            >
+          </p>
+        </div>
+      </div>
+
+      <div class="card" id="leistungen">
+        <h2>Unsere <span class="gradient-text">Leistungen</span></h2>
+
+        <div class="text-box">
+          <h3>Strategische Planung</h3>
+          <ul class="service-list">
+            <li>KI-Potenzialanalyse über alle Geschäftsbereiche hinweg</li>
+            <li>Entwicklung von Roadmaps im Einklang mit Unternehmenszielen</li>
+            <li>Risikominimierung und Investitionspriorisierung</li>
+          </ul>
+        </div>
+
+        <div class="text-box">
+          <h3>Lösungsdesign</h3>
+          <ul class="service-list">
+            <li>
+              Entwicklung anspruchsvoller Prototypen zur Konzeptvalidierung
+            </li>
+            <li>Architekturplanung für produktionsreife KI-Integration</li>
+            <li>Entwicklung von Sicherheits- und Compliance-Frameworks</li>
+          </ul>
+        </div>
+
+        <div class="text-box">
+          <h3>Implementierungsunterstützung</h3>
+          <ul class="service-list">
+            <li>
+              Technische Überwachung zur Sicherstellung von Qualität und
+              Geschäftsausrichtung
+            </li>
+            <li>Wissenstransfer und Aufbau von Teamkompetenzen</li>
+            <li>Leistungsüberwachung und kontinuierliche Optimierung</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" id="ansatz">
+        <h2>Unser <span class="gradient-text">Ansatz</span></h2>
+
+        <p>
+          Die Methodik ist strukturiert und dennoch anpassungsfähig, mit Fokus
+          auf Geschäftswirkung statt technologischer Trends:
+        </p>
+
+        <div class="text-box">
+          <ul class="service-list">
+            <li>
+              <strong>Business-First-Perspektive</strong> - Technologie als
+              Enabler, nicht als Selbstzweck
+            </li>
+            <li>
+              <strong>Bewährte Methoden</strong> - Verfeinert durch Erfahrung
+              und Unternehmensimplementierungen
+            </li>
+            <li>
+              <strong>Risikogeminderte Innovation</strong> - Balance zwischen
+              Cutting-Edge-Funktionen und Stabilität
+            </li>
+          </ul>
+        </div>
+
+        <div class="text-box">
+          <h3>Zusammenarbeitsmodell</h3>
+          <p>
+            Flexible Kooperationsoptionen, maßgeschneidert für Ihre
+            organisatorischen Bedürfnisse:
+          </p>
+          <ul class="service-list">
+            <li>Strategische Beratungsdienstleistungen</li>
+            <li>Entscheidungsunterstützung für Technologieinvestitionen</li>
+            <li>Implementierungsüberwachung</li>
+            <li>Executive Education und Kompetenzaufbau</li>
+          </ul>
+        </div>
+
+        <div class="text-box">
+          <h3>Kundenprofil</h3>
+          <p>Ideal für Organisationen, die:</p>
+          <ul class="service-list">
+            <li>Strategische Ausrichtung für KI-Initiativen benötigen</li>
+            <li>
+              Pragmatische Lösungen gegenüber experimentellen Technologien
+              bevorzugen
+            </li>
+            <li>
+              Die Lücke zwischen Geschäftsvision und technischer Umsetzung
+              schließen müssen
+            </li>
+            <li>
+              Erfahrungsbasierte Anleitung gegenüber theoretischen Ansätzen
+              schätzen
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" id="kontakt">
+        <h2>Ihr nächster <span class="gradient-text">Schritt</span></h2>
+
+        <p>
+          Vereinbaren Sie jetzt Ihr KI-Potenzial-Assessment und sichern Sie sich
+          einen Implementierungsvorsprung von mindestens zwei Quartalen
+          gegenüber Ihren Wettbewerbern.
+        </p>
+
+        <div class="text-box">
+          <p>
+            Die aktuelle KI-Reifephase bietet ein optimales Zeitfenster, das die
+            Balance zwischen bewährten Technologien und noch nicht vollständig
+            erschlossenen Wettbewerbsvorteilen bietet. Dieses Fenster wird sich
+            in den kommenden 6-9 Monaten deutlich verengen.
+          </p>
+
+          <div class="highlight-box">
+            <p>
+              <strong
+                >Kontaktieren Sie mich diese Woche für einen Ersttermin
+                innerhalb der nächsten 14 Tage und erhalten Sie zusätzlich eine
+                kostenfreie Kurzanalyse des KI-Reifegrads Ihrer Branche.</strong
+              >
+            </p>
+          </div>
+        </div>
+
+        <div class="text-box">
+          <h3>Über mich</h3>
+
+          <div class="profile-container">
+            <div class="profile-image"></div>
+            <div class="profile-text">
+              <p>
+                Mit über 15 Jahren Berufserfahrung im gesamten
+                Technologiespektrum unterstütze ich Unternehmen jeder
+                Größenordnung dabei, visionäre Ideen in greifbare Produkte zu
+                verwandeln. Mein Hintergrund reicht von Startup-Umgebungen bis
+                hin zu Großunternehmen in den Bereichen Telekommunikation,
+                IT-Sicherheit, Gesundheitswesen und Medienindustrie.
+              </p>
+
+              <p>
+                Diese vielfältige Erfahrung bietet eine einzigartige Perspektive
+                für die effektive Skalierung von Technologielösungen in
+                verschiedenen Geschäftskontexten. Als Mitgründer von
+                projectfit.ai und Berater in regulierten Branchen bringe ich
+                praktische Implementierungserfahrung anstatt nur theoretisches
+                Wissen.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-box">
+          <h3>Kontakt</h3>
+          <p>
+            n.wagensonner@manyminds.de<br />
+            +49 176 624 224 77
+          </p>
+
+          <p>
+            Standort: Unterschleißheim, Deutschland<br />
+            Verfügbar für Remote- und Vor-Ort-Einsätze
+          </p>
+
+          <button class="btn">Beratungsgespräch vereinbaren</button>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>© 2025 NexusAI. Alle Rechte vorbehalten.</p>
+
+        <div class="impressum" id="impressum">
+          <h3>Impressum</h3>
+          <p><strong>Angaben gemäß § 5 TMG:</strong></p>
+          <p>
+            Nino Wagensonner<br />
+            85716 Unterschleißheim
+          </p>
+
+          <p><strong>Kontakt:</strong></p>
+          <p>E-Mail: n.wagensonner@manyminds.de</p>
+
+          <p><strong>Umsatzsteuer-ID:</strong></p>
+          <p>
+            Umsatzsteuer-Identifikationsnummer gemäß § 27a
+            Umsatzsteuergesetz:<br />
+            DE328428491
+          </p>
+
+          <p>
+            <strong
+              >Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong
+            >
+          </p>
+          <p>
+            Nino Wagensonner<br />
+            85716 Unterschleißheim
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      // Mobile menu toggle
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+        const navItems = document.getElementById("navItems");
+
+        mobileMenuBtn.addEventListener("click", function () {
+          navItems.classList.toggle("active");
+        });
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll(".nav-link");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            navItems.classList.remove("active");
+          });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute("href");
+            if (targetId === "#") return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80, // Offset for the fixed header
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
