@@ -27,6 +27,34 @@
         box-sizing: border-box;
       }
 
+      /* Link styling */
+      a {
+        color: var(--accent-yellow);
+        text-decoration: none;
+        transition:
+          color 0.2s ease,
+          border-bottom 0.2s ease;
+        border-bottom: 1px solid transparent;
+      }
+
+      a:hover {
+        color: var(--accent-red);
+        border-bottom: 1px solid var(--accent-red);
+      }
+
+      .text-box a {
+        font-weight: 500;
+      }
+
+      /* Navigation links sind bereits gestylt, daher müssen wir sicherstellen, dass sie nicht überschrieben werden */
+      .nav-link {
+        border-bottom: none;
+      }
+
+      .nav-link:hover {
+        border-bottom: none;
+      }
+
       body {
         background-color: var(--bg-color);
         color: var(--text-primary);
@@ -502,6 +530,88 @@
         .mobile-menu-btn {
           display: block;
         }
+      }
+      /* Verbesserte Text-Responsivität */
+      p,
+      li,
+      h1,
+      h2,
+      h3,
+      .btn {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        -ms-word-break: break-all;
+        word-break: break-word;
+        -ms-hyphens: auto;
+        -moz-hyphens: auto;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+      }
+
+      /* Mobiloptimierung für lange Wörter */
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+
+        .text-box {
+          padding: 1.25rem;
+        }
+
+        .card {
+          padding: 1.5rem;
+        }
+
+        .service-list li {
+          padding-right: 0.5rem; /* Gibt mehr Platz für Umbrüche */
+        }
+
+        /* Kleinere Schriftgrößen für Mobile */
+        p,
+        .service-list li {
+          font-size: 1rem;
+        }
+
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        h2 {
+          font-size: 1.6rem;
+        }
+
+        h3 {
+          font-size: 1.3rem;
+        }
+      }
+
+      /* Spezielle Anpassungen für sehr kleine Bildschirme */
+      @media (max-width: 480px) {
+        .profile-container {
+          flex-direction: column;
+        }
+
+        .profile-image {
+          max-width: 100%;
+          height: 350px;
+        }
+
+        h1 {
+          font-size: 1.8rem;
+        }
+      }
+      /* Verbesserte Textbox-Anpassungen */
+      .text-box {
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      .service-list {
+        max-width: 100%;
+      }
+
+      .service-list li {
+        max-width: 100%;
       }
     </style>
   </head>
