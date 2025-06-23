@@ -1,0 +1,40 @@
+# robots.txt for https://manyminds.de/
+# Allow all web crawlers
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://manyminds.de/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Disallow access to any admin or private directories if they exist
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.git/
+Disallow: /claude-files/
+
+# Allow search engines to index images
+User-agent: Googlebot-Image
+Allow: /images/
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
