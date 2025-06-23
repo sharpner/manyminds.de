@@ -94,6 +94,11 @@
 
       body {
         background-color: var(--bg-color);
+        background-image: 
+          radial-gradient(ellipse 80% 80% at 50% -20%, rgba(120, 119, 198, 0.3), transparent),
+          radial-gradient(ellipse 80% 80% at 80% 80%, rgba(255, 119, 198, 0.15), transparent),
+          radial-gradient(ellipse 80% 80% at 20% 100%, rgba(120, 219, 255, 0.15), transparent);
+        background-attachment: fixed;
         color: var(--text-primary);
         font-family:
           "Inter",
@@ -105,6 +110,21 @@
         position: relative;
         min-height: 100vh;
         padding: 0;
+      }
+      
+      /* Dark gradient overlay for better contrast */
+      body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(ellipse at center, 
+          transparent 0%, 
+          rgba(10, 10, 12, 0.4) 100%);
+        pointer-events: none;
+        z-index: 1;
       }
 
       /* Navigation styles */
@@ -170,38 +190,153 @@
         cursor: pointer;
       }
 
-      /* Subtle gradient backgrounds */
-      .blur-circle {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(120px);
-        opacity: 0.15;
+      /* Modern glow orbs - enhanced with better colors and effects */
+      .glow-container {
+        position: fixed;
+        inset: 0;
+        overflow: hidden;
         z-index: 0;
         pointer-events: none;
       }
-
-      .blur-1 {
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(circle, var(--accent-gold) 0%, transparent 70%);
-        top: -200px;
-        right: -200px;
+      
+      .glow-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(100px);
+        opacity: 0;
+        mix-blend-mode: screen;
+        will-change: transform, opacity;
+        animation: orbFloat 20s ease-in-out infinite;
       }
-
-      .blur-2 {
-        width: 500px;
-        height: 500px;
-        background: radial-gradient(circle, var(--accent-coral) 0%, transparent 70%);
-        bottom: -150px;
-        left: -150px;
+      
+      /* LAB-optimized warm gold/amber glow - maximum luminance */
+      .glow-1 {
+        width: min(60vw, 600px);
+        height: min(60vw, 600px);
+        background: radial-gradient(circle at center, 
+          lab(85 20 70 / 0.6) 0%,     /* High luminance gold */
+          lab(80 15 55 / 0.3) 25%,    /* Warm amber */
+          lab(75 10 40 / 0.15) 50%,   /* Soft orange */
+          transparent 70%);
+        top: -10%;
+        right: -5%;
+        animation-delay: 0s;
+        animation-duration: 25s;
       }
-
-      .blur-3 {
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(circle, var(--accent-mauve) 0%, transparent 70%);
+      
+      /* LAB-optimized purple/violet glow - vibrant luminance */
+      .glow-2 {
+        width: min(50vw, 500px);
+        height: min(50vw, 500px);
+        background: radial-gradient(circle at center,
+          lab(65 50 -60 / 0.5) 0%,    /* Deep vibrant purple */
+          lab(75 25 -40 / 0.25) 30%,  /* Soft violet */
+          lab(70 30 -50 / 0.1) 50%,   /* Light purple */
+          transparent 70%);
+        bottom: -10%;
+        left: -5%;
+        animation-delay: -5s;
+        animation-duration: 30s;
+      }
+      
+      /* LAB-optimized teal/cyan glow - luminous aqua */
+      .glow-3 {
+        width: min(45vw, 450px);
+        height: min(45vw, 450px);
+        background: radial-gradient(circle at center,
+          lab(88 -40 -25 / 0.4) 0%,   /* Bright teal */
+          lab(85 -35 -20 / 0.2) 30%,  /* Cyan */
+          lab(82 -30 -15 / 0.1) 50%,  /* Light blue-green */
+          transparent 70%);
         top: 40%;
-        left: 30%;
+        left: 10%;
+        animation-delay: -10s;
+        animation-duration: 35s;
+      }
+      
+      /* Liquid glass overlay */
+      .liquid-glass-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 2;
+        opacity: 0.4;
+        background: 
+          radial-gradient(ellipse 1000px 800px at 25% 30%, 
+            lab(95 -20 -35 / 0.15) 0%,
+            transparent 50%),
+          radial-gradient(ellipse 800px 1000px at 75% 70%, 
+            lab(90 30 -45 / 0.12) 0%,
+            transparent 50%),
+          radial-gradient(ellipse 900px 900px at 50% 20%, 
+            lab(92 -35 50 / 0.1) 0%,
+            transparent 60%);
+        mix-blend-mode: screen;
+        animation: liquidShift 40s ease-in-out infinite;
+      }
+      
+      @keyframes liquidShift {
+        0%, 100% {
+          transform: scale(1) translateY(0);
+        }
+        33% {
+          transform: scale(1.05) translateY(-20px);
+        }
+        66% {
+          transform: scale(0.95) translateY(20px);
+        }
+      }
+      
+      @keyframes orbFloat {
+        0%, 100% {
+          opacity: 0.2;
+          transform: translate(0, 0) scale(1) rotate(0deg);
+        }
+        20% {
+          opacity: 0.3;
+          transform: translate(-30px, -40px) scale(1.1) rotate(90deg);
+        }
+        40% {
+          opacity: 0.25;
+          transform: translate(50px, 20px) scale(0.95) rotate(180deg);
+        }
+        60% {
+          opacity: 0.35;
+          transform: translate(-20px, 60px) scale(1.05) rotate(270deg);
+        }
+        80% {
+          opacity: 0.22;
+          transform: translate(40px, -30px) scale(0.98) rotate(360deg);
+        }
+      }
+      
+      /* Fade-in animation */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .fade-in-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      /* Add grain texture for depth */
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.03;
+        z-index: 1;
+        pointer-events: none;
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj4KICA8ZmlsdGVyIGlkPSJub2lzZSI+CiAgICA8ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC45IiBudW1PY3RhdmVzPSI0IiAvPgogIDwvZmlsdGVyPgogIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiIG9wYWNpdHk9IjEiIC8+Cjwvc3ZnPg==');
       }
 
       /* Content container */
@@ -273,56 +408,104 @@
         display: inline-block;
       }
 
-      /* Card styles - Clean and sophisticated */
-      .card {
-        background-color: var(--card-bg);
-        border-radius: var(--radius-lg);
-        padding: var(--space-xl);
-        margin-top: var(--space-xl);
+      /* Section styles - Better structure without nested boxes */
+      .section {
+        margin-top: var(--space-3xl);
         position: relative;
-        border: 1px solid var(--border-subtle);
         scroll-margin-top: calc(var(--space-3xl) + var(--space-sm));
-        transition: all var(--transition-base);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
+      }
+      
+      .section > :first-child {
+        margin-top: 0;
       }
 
-      .card p {
+      .section p {
         font-size: clamp(1rem, 1.5vw, 1.125rem);
         line-height: 1.75;
         margin-bottom: var(--space-md);
       }
 
-      .card p strong {
+      .section p strong {
         color: var(--text-primary);
         font-weight: 600;
       }
 
-      .card + .card {
-        margin-top: var(--space-2xl);
+      .section + .section {
+        margin-top: var(--space-3xl);
+        padding-top: var(--space-3xl);
+        border-top: 1px solid var(--border-subtle);
       }
       
-      /* Subtle hover effect */
-      .card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        border-color: var(--border-hover);
+      /* Content blocks - alternative to text boxes */
+      .content-block {
+        position: relative;
+        padding-left: var(--space-lg);
+        margin: var(--space-xl) 0;
+      }
+      
+      .content-block::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(
+          to bottom,
+          var(--accent-gold) 0%,
+          var(--accent-coral) 100%
+        );
+        border-radius: 2px;
+        opacity: 0.6;
+        transition: opacity var(--transition-base);
+      }
+      
+      .content-block:hover::before {
+        opacity: 1;
       }
 
-      /* Text box styles - Refined */
-      .text-box {
-        background-color: var(--text-box-bg);
-        border-radius: var(--radius-md);
-        padding: var(--space-lg);
-        margin: var(--space-md) 0;
+      /* Feature cards - Modern glass morphism design */
+      .feature-card {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.02) 0%,
+          rgba(255, 255, 255, 0.01) 100%
+        );
+        border-radius: var(--radius-lg);
+        padding: var(--space-xl);
+        margin: var(--space-lg) 0;
         border: 1px solid var(--border-subtle);
-        transition: all var(--transition-base);
+        transition: all var(--transition-slow);
         position: relative;
         overflow: hidden;
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
       }
       
-      /* Subtle glow effect on hover */
-      .text-box::before {
+      /* Interactive glow border */
+      .feature-card::before {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        border-radius: var(--radius-lg);
+        padding: 2px;
+        background: linear-gradient(
+          var(--gradient-angle, 0deg),
+          var(--accent-gold),
+          var(--accent-coral),
+          var(--accent-mauve),
+          var(--accent-gold)
+        );
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, 
+                      linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity var(--transition-base);
+      }
+      
+      /* Mouse tracking glow effect */
+      .feature-card::after {
         content: '';
         position: absolute;
         top: 0;
@@ -330,30 +513,44 @@
         right: 0;
         bottom: 0;
         background: radial-gradient(
-          circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-          rgba(212, 165, 116, 0.05) 0%,
-          transparent 60%
+          600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+          rgba(212, 165, 116, 0.06) 0%,
+          transparent 40%
         );
         opacity: 0;
         transition: opacity var(--transition-base);
         pointer-events: none;
+        border-radius: var(--radius-lg);
       }
 
-      .text-box:hover {
-        transform: translateY(-1px);
-        border-color: var(--border-hover);
+      .feature-card:hover {
+        transform: translateY(-2px) scale(1.01);
+        box-shadow: 
+          0 10px 30px rgba(0, 0, 0, 0.2),
+          0 0 60px rgba(212, 165, 116, 0.05);
+        border-color: rgba(255, 255, 255, 0.1);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.04) 0%,
+          rgba(255, 255, 255, 0.02) 100%
+        );
       }
       
-      .text-box:hover::before {
+      .feature-card:hover::before {
+        opacity: 0.6;
+      }
+      
+      .feature-card:hover::after {
         opacity: 1;
       }
 
-      .text-box h3 {
+      .feature-card h3 {
         margin-top: 0;
         font-size: clamp(1.25rem, 2vw, 1.5rem);
+        margin-bottom: var(--space-md);
       }
 
-      .text-box p:last-child {
+      .feature-card p:last-child {
         margin-bottom: 0;
       }
 
@@ -371,6 +568,47 @@
 
       .highlight-box p {
         margin-bottom: 0;
+      }
+      
+      /* Enhanced list items with hover effects */
+      .service-list li {
+        transition: all var(--transition-base);
+      }
+      
+      .service-list li:hover {
+        transform: translateX(4px);
+        color: var(--text-primary);
+      }
+      
+      .service-list li:hover::before {
+        color: var(--accent-coral);
+        transform: scale(1.2);
+      }
+      
+      /* Smooth scroll behavior */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* Enhanced section headings */
+      .section h2 {
+        position: relative;
+        padding-bottom: var(--space-md);
+      }
+      
+      .section h2::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(
+          to right,
+          var(--accent-gold) 0%,
+          transparent 100%
+        );
+        border-radius: 2px;
       }
 
       /* Service lists - Better spacing */
@@ -555,12 +793,12 @@
           padding-top: var(--space-lg);
         }
 
-        .card {
-          padding: var(--space-lg);
+        .section {
+          padding: 0 var(--space-md);
         }
         
-        .text-box {
-          padding: var(--space-md);
+        .feature-card {
+          padding: var(--space-lg);
         }
 
         .nav-items {
@@ -672,126 +910,130 @@
       </div>
     </nav>
 
-    <!-- Blurred background circles -->
-    <div class="blur-circle blur-1"></div>
-    <div class="blur-circle blur-2"></div>
-    <div class="blur-circle blur-3"></div>
+    <!-- Enhanced glow effects container -->
+    <div class="glow-container">
+      <div class="glow-orb glow-1"></div>
+      <div class="glow-orb glow-2"></div>
+      <div class="glow-orb glow-3"></div>
+    </div>
+    
+    <!-- Mouse tracking glow -->
+    <!-- Liquid glass overlay -->
+    <div class="liquid-glass-overlay"></div>
 
     <div class="container">
       <h1>Strategische <span class="warm-gradient">KI-Beratung</span></h1>
 
       <p>
-        Transformieren Sie Ihr Unternehmen mit erfahrener KI-Expertise.
-        Umfassende strategische Unterstützung für Organisationen auf ihrem Weg
-        der KI-Transformation, mit Fokus auf pragmatische Lösungen, die
-        messbaren Geschäftswert liefern.
+        Transformieren Sie Ihr Unternehmen mit durchdachter KI-Strategie.
+        Ich unterstütze Sie dabei, aus technologischen Möglichkeiten echten 
+        Geschäftswert zu schaffen – mit pragmatischen Lösungen, die nachweislich
+        funktionieren und messbare Ergebnisse liefern.
       </p>
 
-      <div class="card" id="early-adopter">
+      <section class="section" id="early-adopter">
         <h2>
           Der <span class="gradient-text">Early-Adopter-Vorteil</span> in KI
         </h2>
 
         <p>
-          Die Implementierung von KI ist keine Frage des "Ob", sondern des
-          "Wann" – und das "Wann" ist entscheidend für Ihren Wettbewerbsvorteil:
+          Die Implementierung von KI ist keine Frage des "Ob" mehr, sondern
+          des "Wann" – und genau dieser Zeitpunkt entscheidet maßgeblich
+          über Ihren künftigen Wettbewerbsvorteil:
         </p>
 
-        <div class="text-box">
+        <div class="feature-card">
           <ul class="service-list">
             <li>
               <strong>Datenvorsprung aufbauen:</strong> Frühe KI-Implementierung
-              bedeutet früheren Start der Datensammlung und -analyse. Dieser
-              kumulierte Datenschatz wird zum uneinholbaren Wettbewerbsvorteil.
+              ermöglicht den systematischen Aufbau wertvoller Datenbestände.
+              Dieser Vorsprung wird zum nachhaltigen Wettbewerbsvorteil.
             </li>
             <li>
-              <strong>Kostenvorteil sichern:</strong> Unternehmen, die
-              frühzeitig in KI investieren, profitieren typischerweise von
-              erheblich niedrigeren Implementierungskosten im Vergleich zu
-              späteren Adoptern, die komplexere Legacy-Systeme integrieren
-              müssen.
+              <strong>Kostenvorteil sichern:</strong> Die frühzeitige Adoption
+              ermöglicht kostengünstigere Implementierungen. Spätere Integration
+              in gewachsene Legacy-Systeme verursacht erhebliche Mehrkosten.
             </li>
             <li>
-              <strong>Organisationales Lernen:</strong> Die frühzeitige
-              Integration von KI schafft eine Lernkurve für Ihre gesamte
-              Organisation, die Wettbewerber nicht über Nacht aufholen können.
+              <strong>Organisationales Lernen:</strong> Praktische Erfahrung
+              im Umgang mit KI-Systemen schafft Kompetenzen, die nicht
+              kurzfristig aufgebaut werden können – ein klarer Vorsprung.
             </li>
             <li>
-              <strong>Talentmagnet werden:</strong> Unternehmen mit
-              fortschrittlichen KI-Initiativen ziehen die besten Talente an und
-              halten sie – ein kritischer Vorteil in Zeiten des
-              Fachkräftemangels.
+              <strong>Talentmagnet werden:</strong> Fortschrittliche KI-Projekte
+              ziehen Top-Talente an. Positionieren Sie sich als innovativer
+              Arbeitgeber, der technologische Entwicklungen aktiv gestaltet.
             </li>
           </ul>
         </div>
-      </div>
+      </section>
 
-      <div class="card" id="leistungen">
-        <h2>Unsere <span class="gradient-text">Leistungen</span></h2>
+      <section class="section" id="leistungen">
+        <h2>Meine <span class="gradient-text">Leistungen</span></h2>
 
-        <div class="text-box">
+        <div class="feature-card">
           <h3>Strategische Planung</h3>
           <ul class="service-list">
-            <li>KI-Potenzialanalyse über alle Geschäftsbereiche hinweg</li>
-            <li>Entwicklung von Roadmaps im Einklang mit Unternehmenszielen</li>
-            <li>Risikominimierung und Investitionspriorisierung</li>
+            <li>Fundierte KI-Potenzialanalyse mit klarer Kosten-Nutzen-Bewertung</li>
+            <li>Maßgeschneiderte Roadmaps, abgestimmt auf Ihre Unternehmensziele</li>
+            <li>Strategische Priorisierung von Investitionen nach Geschäftswert</li>
           </ul>
         </div>
 
-        <div class="text-box">
+        <div class="feature-card">
           <h3>Lösungsdesign</h3>
           <ul class="service-list">
             <li>
-              Entwicklung anspruchsvoller Prototypen zur Konzeptvalidierung
+              Entwicklung funktionsfähiger Prototypen zur Konzeptvalidierung
             </li>
-            <li>Architekturplanung für produktionsreife KI-Integration</li>
-            <li>Entwicklung von Sicherheits- und Compliance-Frameworks</li>
+            <li>Zukunftssichere Architekturkonzepte mit langfristiger Perspektive</li>
+            <li>Integrierte Sicherheits- und Compliance-Konzepte von Beginn an</li>
           </ul>
         </div>
 
-        <div class="text-box">
+        <div class="feature-card">
           <h3>Implementierungsunterstützung</h3>
           <ul class="service-list">
             <li>
-              Technische Überwachung zur Sicherstellung von Qualität und
-              Geschäftsausrichtung
+              Begleitung bis zur erfolgreichen Produktivsetzung und darüber hinaus
             </li>
-            <li>Wissenstransfer und Aufbau von Teamkompetenzen</li>
-            <li>Leistungsüberwachung und kontinuierliche Optimierung</li>
+            <li>Systematischer Wissenstransfer für nachhaltige Teamkompetenz</li>
+            <li>Etablierung von Prozessen für kontinuierliche Optimierung</li>
           </ul>
         </div>
-      </div>
+      </section>
 
-      <div class="card" id="ansatz">
-        <h2>Unser <span class="gradient-text">Ansatz</span></h2>
+      <section class="section" id="ansatz">
+        <h2>Mein <span class="gradient-text">Ansatz</span></h2>
 
         <p>
-          Die Methodik ist strukturiert und dennoch anpassungsfähig, mit Fokus
-          auf Geschäftswirkung statt technologischer Trends:
+          Meine Arbeitsweise kombiniert strukturierte Methodik mit der nötigen
+          Flexibilität für individuelle Anforderungen. Der Fokus liegt konsequent
+          auf Ihrer Geschäftsentwicklung:
         </p>
 
-        <div class="text-box">
+        <div class="feature-card">
           <ul class="service-list">
             <li>
-              <strong>Business-First-Perspektive</strong> - Technologie als
-              Enabler, nicht als Selbstzweck
+              <strong>Business-First-Perspektive</strong> – Technologie im
+              Dienst konkreter Geschäftsziele
             </li>
             <li>
-              <strong>Bewährte Methoden</strong> - Verfeinert durch Erfahrung
-              und Unternehmensimplementierungen
+              <strong>Bewährte Methoden</strong> – Erprobte Ansätze,
+              kontinuierlich weiterentwickelt
             </li>
             <li>
-              <strong>Risikogeminderte Innovation</strong> - Balance zwischen
-              Cutting-Edge-Funktionen und Stabilität
+              <strong>Risikogeminderte Innovation</strong> – Ausgewogene
+              Balance zwischen Innovation und Stabilität
             </li>
           </ul>
         </div>
 
-        <div class="text-box">
+        <div class="feature-card">
           <h3>Zusammenarbeitsmodell</h3>
           <p>
-            Flexible Kooperationsoptionen, maßgeschneidert für Ihre
-            organisatorischen Bedürfnisse:
+            Flexible Zusammenarbeitsmodelle, individuell auf Ihre
+            Anforderungen und Rahmenbedingungen abgestimmt:
           </p>
           <ul class="service-list">
             <li>Strategische Beratungsdienstleistungen</li>
@@ -801,73 +1043,69 @@
           </ul>
         </div>
 
-        <div class="text-box">
+        <div class="feature-card">
           <h3>Kundenprofil</h3>
           <p>Ideal für Organisationen, die:</p>
           <ul class="service-list">
-            <li>Strategische Ausrichtung für KI-Initiativen benötigen</li>
+            <li>Strategische Klarheit für ihre KI-Initiativen benötigen</li>
             <li>
-              Pragmatische Lösungen gegenüber experimentellen Technologien
-              bevorzugen
+              Nachhaltige Lösungen mit langfristiger Perspektive bevorzugen
             </li>
             <li>
-              Die Lücke zwischen Geschäftsvision und technischer Umsetzung
-              schließen müssen
+              Die Brücke zwischen Geschäftsanforderungen und Technologie suchen
             </li>
             <li>
-              Erfahrungsbasierte Anleitung gegenüber theoretischen Ansätzen
-              schätzen
+              Praxiserprobte Expertise gegenüber theoretischen Konzepten schätzen
             </li>
           </ul>
         </div>
-      </div>
+      </section>
 
-      <div class="card" id="kontakt">
+      <section class="section" id="kontakt">
         <h2>Ihr nächster <span class="gradient-text">Schritt</span></h2>
 
         <p>
-          Buchen sie jetzt einen ersten Beratungstermin und helfen sie mir Ihr
-          Team zu schulen. So sichern Sie sich einen erheblichen
-          Implementierungsvorsprung gegenüber Ihren Wettbewerbern.
+          Vereinbaren Sie ein unverbindliches Erstgespräch, um die konkreten
+          KI-Potenziale für Ihr Unternehmen zu evaluieren. Gemeinsam entwickeln
+          wir realistische Ansätze für Ihre digitale Transformation.
         </p>
 
-        <div class="text-box">
+        <div class="feature-card">
           <p>
-            Die aktuelle KI-Reifephase bietet ein optimales Zeitfenster, das die
-            Balance zwischen bewährten Technologien und noch nicht vollständig
-            erschlossenen Wettbewerbsvorteilen bietet. Dieses Fenster wird sich
-            in den kommenden 6-9 Monaten deutlich verengen.
+            Die aktuelle Marktphase bietet optimale Bedingungen: KI-Technologien
+            sind ausgereift genug für produktive Anwendungen, während der
+            Wettbewerbsvorteil durch frühe Adoption noch realisierbar ist.
+            Dieses strategische Zeitfenster ist begrenzt.
           </p>
         </div>
 
-        <div class="text-box">
-          <h3>Über mich</h3>
+        <h3>Über mich</h3>
 
+        <div class="feature-card">
           <div class="profile-container">
             <div class="profile-image" id="profileImage"></div>
             <div class="profile-text">
               <p>
-                Mit über 15 Jahren Berufserfahrung im gesamten
-                Technologiespektrum unterstütze ich Unternehmen jeder
-                Größenordnung dabei, visionäre Ideen in greifbare Produkte zu
-                verwandeln. Mein Hintergrund reicht von Startup-Umgebungen bis
-                hin zu Großunternehmen in den Bereichen Telekommunikation,
+                Mit über 15 Jahren Erfahrung im Technologiesektor habe ich
+                Projekte aller Größenordnungen erfolgreich begleitet – von
+                agilen Startup-Umgebungen bis zu strukturierten Konzernprozessen.
+                Meine branchenübergreifende Expertise umfasst Telekommunikation,
                 IT-Sicherheit, Gesundheitswesen und Medienindustrie.
               </p>
 
               <p>
-                Diese vielfältige Erfahrung bietet eine einzigartige Perspektive
-                für die effektive Skalierung von Technologielösungen in
-                verschiedenen Geschäftskontexten. Als Mitgründer von
-                <a href="https://projectfit.ai">projectfit.ai</a> und Berater in
-                regulierten Branchen bringe ich praktische
-                Implementierungserfahrung anstatt nur theoretisches Wissen.
+                Diese vielfältige Perspektive ermöglicht es mir, schnell
+                passende Lösungsansätze für Ihren spezifischen Kontext zu
+                entwickeln. Als Mitgründer von
+                <a href="https://projectfit.ai">projectfit.ai</a> bringe ich
+                unternehmerische Perspektive ein, während meine Erfahrung in
+                regulierten Märkten Compliance-Sicherheit gewährleistet.
               </p>
             </div>
           </div>
         </div>
 
-        <div class="text-box">
+        <div class="feature-card">
           <h3>Kontakt</h3>
           <p>n.wagensonner@manyminds.de<br /></p>
 
@@ -877,11 +1115,11 @@
           </p>
 
           <a
-            href="mailto:n.wagensonner@manyminds.de?subject=Beratungsgespräch%20vereinbaren"
-            ><button class="btn">Beratungsgespräch vereinbaren</button>
+            href="mailto:n.wagensonner@manyminds.de?subject=Erstgespräch%20KI-Beratung"
+            ><button class="btn">Erstgespräch vereinbaren</button>
           </a>
         </div>
-      </div>
+      </section>
 
       <footer class="footer">
         <p>© 2025 Nino Wagensonner. Alle Rechte vorbehalten.</p>
@@ -968,14 +1206,44 @@
         }
         setProfileImage("images/me.jpg");
         
-        // Mouse tracking for text-box glow effect
-        document.querySelectorAll('.text-box').forEach(box => {
-          box.addEventListener('mousemove', (e) => {
-            const rect = box.getBoundingClientRect();
-            const x = ((e.clientX - rect.left) / rect.width) * 100;
-            const y = ((e.clientY - rect.top) / rect.height) * 100;
-            box.style.setProperty('--mouse-x', `${x}%`);
-            box.style.setProperty('--mouse-y', `${y}%`);
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('fade-in-visible');
+            }
+          });
+        }, observerOptions);
+        
+        // Observe all sections and cards
+        document.querySelectorAll('.section, .feature-card, h2, h3').forEach(el => {
+          el.classList.add('fade-in');
+          observer.observe(el);
+        });
+        
+        // Animate gradient borders on feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+          let gradientAngle = 0;
+          let animationId = null;
+          
+          card.addEventListener('mouseenter', () => {
+            const animateGradient = () => {
+              gradientAngle = (gradientAngle + 1) % 360;
+              card.style.setProperty('--gradient-angle', `${gradientAngle}deg`);
+              animationId = requestAnimationFrame(animateGradient);
+            };
+            animateGradient();
+          });
+          
+          card.addEventListener('mouseleave', () => {
+            if (animationId) {
+              cancelAnimationFrame(animationId);
+            }
           });
         });
       });
