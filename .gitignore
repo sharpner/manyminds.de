@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env.local
+.vercel
+.env*.local
+.DS_Store
+*.log
+generate-*.py
+design-improvements.md
+server.go
+server.py
