@@ -78,16 +78,11 @@
         --font-display: 'Fraunces', Georgia, serif;
         --font-body: 'DM Sans', -apple-system, sans-serif;
 
-        --text-xs: 0.75rem;
-        --text-sm: 0.875rem;
-        --text-base: 1rem;
-        --text-lg: 1.125rem;
-        --text-xl: 1.25rem;
-        --text-2xl: 1.5rem;
-        --text-3xl: 2rem;
-        --text-4xl: 2.5rem;
-        --text-5xl: 3.5rem;
-        --text-7xl: 6rem;
+        --text-xs: 0.75rem;    /* 12px - labels, citations */
+        --text-sm: 0.875rem;   /* 14px - secondary text */
+        --text-base: 1rem;     /* 16px - body */
+        --text-lg: 1.25rem;    /* 20px - emphasis, card titles */
+        --text-xl: 2.5rem;     /* 40px - headings */
 
         /* Line Heights - Research-based */
         --line-tight: 1.1;      /* Large headings H1 */
@@ -293,7 +288,7 @@
         background: none;
         border: none;
         color: var(--text-primary);
-        font-size: var(--text-2xl);
+        font-size: var(--text-xl);
         cursor: pointer;
         padding: 8px;
       }
@@ -358,7 +353,7 @@
 
       .hero-title {
         font-family: var(--font-display);
-        font-size: clamp(var(--text-4xl), 8vw, var(--text-7xl));
+        font-size: clamp(var(--text-xl), 8vw, 4.5rem);
         font-weight: 400;
         line-height: var(--line-tight); /* Large headings */
         letter-spacing: var(--letter-tight);
@@ -394,7 +389,7 @@
       }
 
       .hero-subtitle {
-        font-size: var(--text-xl);
+        font-size: var(--text-lg);
         color: var(--text-secondary);
         max-width: var(--prose-width);
         margin-bottom: var(--space-xl);
@@ -587,7 +582,7 @@
 
       .section-title {
         font-family: var(--font-display);
-        font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+        font-size: clamp(var(--text-xl), 5vw, 3rem);
         font-weight: 500;
         line-height: var(--line-snug); /* Tighter for headings */
         letter-spacing: var(--letter-tight);
@@ -635,7 +630,7 @@
 
       .advantage-number {
         font-family: var(--font-display);
-        font-size: var(--text-xl);
+        font-size: var(--text-lg);
         font-weight: 300;
         color: var(--accent-sage);
         opacity: 0.6;
@@ -705,7 +700,7 @@
 
       .card-title {
         font-family: var(--font-display);
-        font-size: var(--text-xl);
+        font-size: var(--text-lg);
         font-weight: 600; /* Semibold on glass - Apple HIG */
         margin-bottom: var(--space-sm);
         color: var(--text-primary);
@@ -801,7 +796,7 @@
 
       .service-number {
         font-family: var(--font-display);
-        font-size: var(--text-4xl);
+        font-size: var(--text-xl);
         font-weight: 300;
         color: var(--accent-sage-dim);
         margin-bottom: var(--space-md);
@@ -810,7 +805,7 @@
 
       .service-title {
         font-family: var(--font-display);
-        font-size: var(--text-xl);
+        font-size: var(--text-lg);
         font-weight: 600; /* Semibold on glass */
         margin-bottom: var(--space-md);
         color: var(--text-primary);
@@ -894,7 +889,7 @@
 
       .about-card h3 {
         font-family: var(--font-display);
-        font-size: var(--text-xl);
+        font-size: var(--text-lg);
         font-weight: 600;
         margin-bottom: var(--space-md);
         color: var(--text-primary);
@@ -1218,7 +1213,7 @@
 
         .hero-title {
           text-align: center;
-          font-size: clamp(var(--text-3xl), 10vw, var(--text-5xl));
+          font-size: clamp(var(--text-xl), 10vw, 3rem);
         }
 
         .hero-subtitle {
@@ -1250,7 +1245,7 @@
         }
 
         .section-title {
-          font-size: clamp(var(--text-2xl), 7vw, var(--text-4xl));
+          font-size: clamp(var(--text-lg), 7vw, var(--text-xl));
         }
 
         .cards-grid {
@@ -1472,7 +1467,7 @@
         }
 
         .hero-title {
-          font-size: clamp(var(--text-2xl), 9vw, var(--text-4xl));
+          font-size: clamp(var(--text-lg), 9vw, var(--text-xl));
         }
 
         .hero-subtitle {
@@ -1489,7 +1484,7 @@
         }
 
         .section-title {
-          font-size: clamp(var(--text-xl), 6vw, var(--text-3xl));
+          font-size: clamp(var(--text-lg), 6vw, var(--text-xl));
         }
 
         .card-title,
@@ -1502,7 +1497,7 @@
         }
 
         .service-number {
-          font-size: var(--text-3xl);
+          font-size: var(--text-xl);
         }
 
         .btn {
@@ -1889,7 +1884,7 @@
 
       .booking-title {
         font-family: var(--font-display);
-        font-size: var(--text-xl);
+        font-size: var(--text-lg);
         font-weight: 600;
         color: var(--text-primary);
       }
@@ -2068,7 +2063,7 @@
         right: var(--space-md);
         background: none;
         border: none;
-        font-size: var(--text-xl);
+        font-size: var(--text-lg);
         color: var(--text-tertiary);
         cursor: pointer;
         padding: 8px;
@@ -2081,7 +2076,7 @@
 
       .modal-title {
         font-family: var(--font-display);
-        font-size: var(--text-2xl);
+        font-size: var(--text-xl);
         font-weight: 600;
         margin-bottom: var(--space-xs);
         color: var(--text-primary);
@@ -2144,7 +2139,7 @@
 
       .form-success h3 {
         font-family: var(--font-display);
-        font-size: var(--text-xl);
+        font-size: var(--text-lg);
         font-weight: 600;
         margin-bottom: var(--space-sm);
         color: var(--text-primary);
@@ -2191,7 +2186,7 @@
         }
 
         .modal-title {
-          font-size: var(--text-xl);
+          font-size: var(--text-lg);
         }
 
         .modal-close {
@@ -2550,7 +2545,7 @@
         </header>
 
         <div class="highlight-card fade-up" style="max-width: 700px; margin: 0 auto;">
-          <p style="font-size: var(--text-2xl); margin-bottom: var(--space-md); text-align: center;">
+          <p style="font-size: var(--text-xl); margin-bottom: var(--space-md); text-align: center;">
             <a href="https://projectfit.ai" target="_blank" rel="noopener">projectfit.ai</a>
           </p>
 
