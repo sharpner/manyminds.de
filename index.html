@@ -15,6 +15,7 @@
     <meta name="keywords" content="KI Agenten, AI Agents, Automatisierung, KI Beratung, Agentic AI, Workflow Automation, KI Implementierung, AI Transformation, Unternehmensberatung" />
     <meta name="author" content="Nino Wagensonner" />
     <link rel="canonical" href="https://manyminds.de/" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -134,6 +135,9 @@
         height: 100vh;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        /* Safe area insets for notch devices */
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
       }
 
       /* Scroll Container - the key to working scroll-snap */
@@ -570,7 +574,7 @@
       /* Feature Cards - Glass Morphism Refined */
       .cards-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
         gap: var(--space-lg);
       }
 
@@ -965,7 +969,7 @@
         .sticky-cta {
           left: 16px;
           right: 16px;
-          bottom: 16px;
+          bottom: calc(16px + env(safe-area-inset-bottom, 0px));
           justify-content: center;
         }
       }
@@ -1070,6 +1074,10 @@
           --space-4xl: 100px;
         }
 
+        .nav {
+          padding: 0 var(--space-sm);
+        }
+
         .nav-links {
           display: none;
           position: absolute;
@@ -1079,30 +1087,56 @@
           flex-direction: column;
           background: rgba(250, 249, 247, 0.98);
           backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
           padding: var(--space-md);
           border-bottom: 1px solid var(--border-subtle);
+          gap: var(--space-xs);
         }
 
         .nav-links.active {
           display: flex;
         }
 
+        .nav-link {
+          padding: 14px 16px;
+          text-align: center;
+          min-height: 48px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
         .mobile-toggle {
-          display: block;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 48px;
+          min-height: 48px;
         }
 
         .hero {
-          padding-top: var(--space-3xl);
+          padding: var(--space-3xl) var(--space-sm) var(--space-xl);
+        }
+
+        .hero-content {
+          text-align: center;
+        }
+
+        .hero-eyebrow {
+          margin-left: auto;
+          margin-right: auto;
         }
 
         .hero-title {
           text-align: center;
+          font-size: clamp(var(--text-3xl), 10vw, var(--text-5xl));
         }
 
         .hero-subtitle {
           text-align: center;
           margin-left: auto;
           margin-right: auto;
+          font-size: var(--text-lg);
         }
 
         .hero-cta {
@@ -1111,11 +1145,292 @@
         }
 
         .hero-visual {
-          height: 300px;
+          height: 250px;
+        }
+
+        .hero-visual-inner {
+          border-radius: 20px 16px 18px 22px;
+        }
+
+        .section {
+          padding: var(--space-lg) var(--space-sm);
+        }
+
+        .section-header {
+          margin-bottom: var(--space-xl);
+        }
+
+        .section-title {
+          font-size: clamp(var(--text-2xl), 7vw, var(--text-4xl));
         }
 
         .cards-grid {
           grid-template-columns: 1fr;
+          gap: var(--space-md);
+        }
+
+        .card {
+          padding: var(--space-lg);
+        }
+
+        .services-grid {
+          gap: var(--space-md);
+        }
+
+        .service-card {
+          padding: var(--space-lg);
+        }
+
+        .highlight-card {
+          padding: var(--space-lg);
+          margin: var(--space-xl) 0;
+        }
+
+        .profile-image {
+          min-height: 220px;
+          max-height: 260px;
+        }
+
+        /* === SECTION-SPECIFIC MOBILE OPTIMIZATIONS === */
+
+        /* Services: Horizontal scroll for cards */
+        #services .section-inner {
+          max-width: 100%;
+          overflow: visible;
+        }
+
+        #services .section-header {
+          margin-bottom: var(--space-md);
+        }
+
+        #services .services-grid {
+          display: flex;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          gap: var(--space-sm);
+          padding-bottom: var(--space-sm);
+          margin: 0 calc(-1 * var(--space-sm));
+          padding-left: var(--space-sm);
+          padding-right: var(--space-sm);
+          -webkit-overflow-scrolling: touch;
+        }
+
+        #services .service-card {
+          flex: 0 0 calc(100vw - 48px);
+          min-width: calc(100vw - 48px);
+          scroll-snap-align: start;
+          padding: var(--space-md);
+        }
+
+        #services .service-number {
+          font-size: var(--text-2xl);
+          margin-bottom: var(--space-xs);
+          color: var(--accent-sage);
+        }
+
+        #services .service-title {
+          font-size: var(--text-base);
+          margin-bottom: var(--space-xs);
+        }
+
+        #services .service-list li {
+          font-size: var(--text-xs);
+          margin-bottom: 4px;
+        }
+
+        /* Approach: Compact layout */
+        #approach .section-header {
+          margin-bottom: var(--space-sm);
+        }
+
+        #approach .highlight-card {
+          padding: var(--space-sm);
+          margin: var(--space-sm) 0;
+        }
+
+        #approach .highlight-card p {
+          font-size: var(--text-sm);
+        }
+
+        #approach .cards-grid {
+          display: flex;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          gap: var(--space-sm);
+          padding-bottom: var(--space-sm);
+          margin: 0 calc(-1 * var(--space-sm));
+          padding-left: var(--space-sm);
+          padding-right: var(--space-sm);
+        }
+
+        #approach .cards-grid .card {
+          flex: 0 0 calc(100vw - 48px);
+          min-width: calc(100vw - 48px);
+          scroll-snap-align: start;
+          padding: var(--space-md);
+        }
+
+        #approach .card-title {
+          font-size: var(--text-base);
+          margin-bottom: var(--space-xs);
+        }
+
+        #approach .card-text {
+          font-size: var(--text-xs);
+        }
+
+        /* Hide the large "Für wen" card on mobile - too much content */
+        #approach > .section-inner > .card {
+          display: none;
+        }
+
+        /* Technology: Horizontal scroll */
+        #technology .section-header {
+          margin-bottom: var(--space-md);
+        }
+
+        #technology .cards-grid {
+          display: flex;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          gap: var(--space-sm);
+          padding-bottom: var(--space-sm);
+          margin: 0 calc(-1 * var(--space-sm));
+          padding-left: var(--space-sm);
+          padding-right: var(--space-sm);
+        }
+
+        #technology .cards-grid .card {
+          flex: 0 0 calc(100vw - 48px);
+          min-width: calc(100vw - 48px);
+          scroll-snap-align: start;
+          padding: var(--space-md);
+        }
+
+        #technology .highlight-card {
+          padding: var(--space-sm);
+          margin-top: var(--space-md);
+        }
+
+        #technology .highlight-card p {
+          font-size: var(--text-sm);
+        }
+
+        /* Advantages: 2x2 Grid */
+        #advantages .section-header {
+          margin-bottom: var(--space-md);
+        }
+
+        #advantages .cards-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: var(--space-xs);
+        }
+
+        #advantages .card {
+          padding: var(--space-sm);
+        }
+
+        #advantages .card-title {
+          font-size: var(--text-sm);
+          margin-bottom: 4px;
+        }
+
+        #advantages .card-text {
+          font-size: 11px;
+          line-height: 1.4;
+        }
+
+        /* Contact: Compact layout - calendar centered */
+        #contact .section-header {
+          margin-bottom: var(--space-sm);
+        }
+
+        #contact .contact-panel-left {
+          display: none;
+        }
+
+        #contact .contact-calendar-unified {
+          grid-template-columns: 1fr;
+          justify-items: center;
+        }
+
+        #contact .contact-panel-right {
+          padding: var(--space-md);
+          width: 100%;
+          max-width: 400px;
+        }
+
+        /* Reduce whitespace - align content to top */
+        .section {
+          justify-content: flex-start;
+          padding-top: calc(72px + var(--space-lg));
+        }
+      }
+
+      /* Small phones */
+      @media (max-width: 480px) {
+        :root {
+          --space-lg: 24px;
+          --space-xl: 32px;
+          --space-2xl: 48px;
+          --space-3xl: 64px;
+        }
+
+        .logo {
+          font-size: var(--text-base);
+        }
+
+        .hero {
+          padding: var(--space-2xl) var(--space-sm) var(--space-lg);
+        }
+
+        .hero-title {
+          font-size: clamp(var(--text-2xl), 9vw, var(--text-4xl));
+        }
+
+        .hero-subtitle {
+          font-size: var(--text-base);
+        }
+
+        .hero-visual {
+          height: 200px;
+        }
+
+        .hero-cta {
+          padding: 14px 24px;
+          font-size: var(--text-sm);
+        }
+
+        .section-title {
+          font-size: clamp(var(--text-xl), 6vw, var(--text-3xl));
+        }
+
+        .card-title,
+        .service-title {
+          font-size: var(--text-lg);
+        }
+
+        .card-text {
+          font-size: var(--text-sm);
+        }
+
+        .service-number {
+          font-size: var(--text-3xl);
+        }
+
+        .btn {
+          padding: 12px 20px;
+          font-size: var(--text-sm);
+          min-height: 44px;
+        }
+
+        .sticky-cta {
+          padding: 14px 20px;
+          font-size: var(--text-sm);
+        }
+
+        .footer {
+          padding: var(--space-lg) var(--space-sm);
         }
       }
 
@@ -1481,6 +1796,88 @@
         }
       }
 
+      @media (max-width: 768px) {
+        .contact-panel-right {
+          padding: var(--space-md);
+        }
+
+        .booking-widget-embedded .calendar-grid {
+          min-height: 240px;
+          padding: var(--space-xs);
+          gap: 2px;
+        }
+
+        .booking-widget-embedded .calendar-day {
+          font-size: 11px;
+        }
+
+        .booking-widget-embedded .calendar-day-header {
+          font-size: 9px;
+        }
+
+        .booking-widget-embedded .time-slots {
+          gap: 4px;
+        }
+
+        .booking-widget-embedded .time-slot {
+          padding: 6px 10px;
+          font-size: var(--text-xs);
+          height: 32px;
+        }
+
+        .contact-details-card {
+          padding: var(--space-md);
+        }
+
+        .profile-info-compact h3 {
+          font-size: var(--text-base);
+        }
+
+        .profile-info-compact p {
+          font-size: var(--text-xs);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .contact-panel-left {
+          gap: var(--space-sm);
+        }
+
+        .contact-calendar-unified {
+          gap: var(--space-md);
+        }
+
+        .booking-widget-embedded .booking-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: var(--space-xs);
+        }
+
+        .booking-widget-embedded .booking-title {
+          font-size: var(--text-base);
+        }
+
+        .booking-widget-embedded .scarcity-badge {
+          font-size: 10px;
+          padding: 4px 10px;
+        }
+
+        .booking-widget-embedded .calendar-nav button {
+          padding: 4px 8px;
+          font-size: var(--text-xs);
+        }
+
+        .booking-widget-embedded .calendar-month {
+          font-size: var(--text-sm);
+        }
+
+        .profile-photo-small {
+          width: 80px;
+          height: 80px;
+          min-width: 80px;
+        }
+      }
+
       /* Hide old booking widget - replaced by embedded version */
       .booking-widget {
         display: none;
@@ -1785,6 +2182,53 @@
 
       @keyframes spin {
         to { transform: rotate(360deg); }
+      }
+
+      /* Modal mobile optimizations */
+      @media (max-width: 768px) {
+        .booking-modal {
+          padding: var(--space-sm);
+          align-items: flex-end;
+          padding-bottom: env(safe-area-inset-bottom, var(--space-sm));
+        }
+
+        .modal-content {
+          border-radius: 24px 24px 0 0;
+          padding: var(--space-lg);
+          max-height: 90vh;
+          overflow-y: auto;
+        }
+
+        .modal-title {
+          font-size: var(--text-xl);
+        }
+
+        .modal-close {
+          min-width: 44px;
+          min-height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .form-group input {
+          padding: 14px 16px;
+          font-size: 16px; /* Prevents iOS zoom on focus */
+        }
+
+        .form-submit {
+          min-height: 48px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .modal-content {
+          padding: var(--space-md);
+        }
+
+        .modal-subtitle {
+          font-size: var(--text-xs);
+        }
       }
     </style>
   </head>
@@ -2532,21 +2976,145 @@
       updateStickyCta(); // Show CTA on page load
     </script>
 
-    <!-- Structured Data -->
+    <!-- Structured Data - Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Nino Wagensonner - KI Agenten Beratung",
-      "url": "https://manyminds.de",
-      "description": "KI Agenten für Unternehmen: Automatisierte Workflows, Potenzialanalyse, Implementierung und Team-Befähigung",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Unterschleißheim",
-        "addressCountry": "DE"
-      },
-      "email": "n.wagensonner@manyminds.de",
-      "priceRange": "€€€"
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://manyminds.de/#organization",
+          "name": "ManyMinds",
+          "alternateName": "ManyMinds KI Beratung",
+          "url": "https://manyminds.de",
+          "description": "KI Agenten für Unternehmen: Automatisierte Workflows, die eigenständig arbeiten. Potenzialanalyse, Implementierung und Team-Befähigung.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Unterschleißheim",
+            "addressRegion": "Bayern",
+            "addressCountry": "DE"
+          },
+          "email": "n.wagensonner@manyminds.de",
+          "founder": {
+            "@id": "https://manyminds.de/#person"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/nwagensonner/"
+          ],
+          "knowsAbout": [
+            "KI Agenten",
+            "AI Agents",
+            "Agentic AI",
+            "Workflow Automation",
+            "KI Implementierung",
+            "AI Transformation"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://manyminds.de/#person",
+          "name": "Nino Wagensonner",
+          "jobTitle": "KI-Berater & Gründer",
+          "url": "https://manyminds.de",
+          "worksFor": {
+            "@id": "https://manyminds.de/#organization"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/nwagensonner/"
+          ],
+          "knowsAbout": [
+            "KI Agenten",
+            "Agentic AI",
+            "Software Engineering",
+            "AI Transformation"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://manyminds.de/#website",
+          "url": "https://manyminds.de",
+          "name": "ManyMinds - KI Agenten für Unternehmen",
+          "publisher": {
+            "@id": "https://manyminds.de/#organization"
+          },
+          "inLanguage": "de-DE"
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://manyminds.de/#service",
+          "name": "KI Agenten Beratung",
+          "url": "https://manyminds.de",
+          "description": "KI Agenten für Unternehmen: Automatisierte Workflows, Potenzialanalyse, Implementierung und Team-Befähigung. 15+ Jahre Erfahrung in Produktion.",
+          "provider": {
+            "@id": "https://manyminds.de/#organization"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Deutschland"
+          },
+          "priceRange": "€€€",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "KI Beratungsleistungen",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Potenzialanalyse",
+                  "description": "Identifikation von Automatisierungspotenzial: Welche Prozesse können KI Agenten übernehmen? Wo liegt der größte Hebel für Ihr Geschäft?"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Implementierung",
+                  "description": "Aufbau von Workflows, die eigenständig arbeiten. Integration in bestehende Systemlandschaft. Iterative Entwicklung mit messbaren Ergebnissen."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Team-Befähigung",
+                  "description": "Nachhaltige KI-Kompetenz im Team aufbauen. Wissen transferieren, damit Ihr Team selbstständig weiterentwickeln kann."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://manyminds.de/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Was sind KI Agenten?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "KI Agenten sind autonome Softwaresysteme, die eigenständig Aufgaben erledigen können. Im Gegensatz zu einfachen Chatbots können sie komplexe Workflows ausführen, Entscheidungen treffen und mit verschiedenen Systemen interagieren."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Wie unterscheiden sich KI Agenten von klassischer Automatisierung?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Klassische Automatisierung folgt starren Regeln. KI Agenten können mit Unsicherheit umgehen, aus Erfahrung lernen und flexibel auf neue Situationen reagieren. Sie verstehen Kontext und können natürliche Sprache verarbeiten."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Für welche Unternehmen eignen sich KI Agenten?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "KI Agenten eignen sich für Unternehmen aller Größen, die repetitive Prozesse haben, die menschliches Urteilsvermögen erfordern. Besonders effektiv sind sie in Bereichen wie Kundenservice, Datenverarbeitung, Research und Prozesssteuerung."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
   </body>

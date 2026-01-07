@@ -1,35 +1,122 @@
 # robots.txt for https://manyminds.de/
-# Allow all web crawlers
+# Updated: 2025-01-07
+
+# ===================================
+# STANDARD WEB CRAWLERS
+# ===================================
 
 User-agent: *
 Allow: /
+Crawl-delay: 1
 
 # Sitemap location
 Sitemap: https://manyminds.de/sitemap.xml
 
-# Crawl-delay for respectful crawling
-Crawl-delay: 1
-
-# Disallow access to any admin or private directories if they exist
+# Disallow private directories
 Disallow: /admin/
 Disallow: /private/
 Disallow: /.git/
 Disallow: /claude-files/
+Disallow: /node_modules/
 
-# Allow search engines to index images
-User-agent: Googlebot-Image
-Allow: /images/
+# ===================================
+# GOOGLE
+# ===================================
 
-# Specific rules for major search engines
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /
+
+# ===================================
+# BING
+# ===================================
 
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
-# Block bad bots
+# ===================================
+# AI CRAWLERS - TRAINING (BLOCK)
+# Block training crawlers to protect content
+# ===================================
+
+# OpenAI Training
+User-agent: GPTBot
+Disallow: /
+
+# Anthropic Training
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+# Google AI Training
+User-agent: Google-Extended
+Disallow: /
+
+# Meta AI Training
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+# Perplexity Training
+User-agent: PerplexityBot
+Disallow: /
+
+# Apple AI Training
+User-agent: Applebot-Extended
+Disallow: /
+
+# Common Crawl (used for AI training)
+User-agent: CCBot
+Disallow: /
+
+# ByteDance/TikTok AI (aggressive crawler!)
+User-agent: Bytespider
+Disallow: /
+
+# Cohere AI Training
+User-agent: cohere-ai
+Disallow: /
+
+# Diffbot
+User-agent: Diffbot
+Disallow: /
+
+# You.com
+User-agent: YouBot
+Disallow: /
+
+# ===================================
+# AI CRAWLERS - SEARCH/CHAT (ALLOW)
+# Allow AI search to cite our content
+# ===================================
+
+# OpenAI Search
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic Search
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# Perplexity Search
+User-agent: Perplexity-User
+Allow: /
+
+# ===================================
+# BLOCK BAD BOTS
+# ===================================
+
 User-agent: MJ12bot
 Disallow: /
 
@@ -37,4 +124,13 @@ User-agent: SemrushBot
 Disallow: /
 
 User-agent: DotBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: DataForSeoBot
 Disallow: /

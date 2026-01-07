@@ -1,0 +1,47 @@
+# ManyMinds - KI Agenten für Unternehmen
+
+> KI-Beratung für Unternehmen: Wir entwickeln autonome KI Agenten, die eigenständig Workflows ausführen. Potenzialanalyse, Implementierung und Team-Befähigung aus einer Hand.
+
+ManyMinds wurde von Nino Wagensonner gegründet. Mit 15+ Jahren Erfahrung in Softwareentwicklung und Produktion helfen wir Unternehmen, KI Agenten erfolgreich einzusetzen.
+
+## Was sind KI Agenten?
+
+KI Agenten sind autonome Softwaresysteme, die eigenständig Aufgaben erledigen. Im Gegensatz zu einfachen Chatbots können sie:
+- Komplexe Workflows ausführen
+- Entscheidungen treffen
+- Mit verschiedenen Systemen interagieren
+- Aus Erfahrung lernen
+- Natürliche Sprache verstehen
+
+## Unsere Leistungen
+
+### Potenzialanalyse
+Wir identifizieren, welche Ihrer Prozesse KI Agenten übernehmen können und wo der größte Hebel für Ihr Geschäft liegt.
+
+### Implementierung
+Aufbau von Workflows, die eigenständig arbeiten. Integration in Ihre bestehende Systemlandschaft. Iterative Entwicklung mit messbaren Ergebnissen.
+
+### Team-Befähigung
+Nachhaltige KI-Kompetenz im Team aufbauen. Wir transferieren Wissen, damit Ihr Team selbstständig weiterentwickeln kann.
+
+## Kontakt
+
+- Website: https://manyminds.de
+- E-Mail: n.wagensonner@manyminds.de
+- Standort: Unterschleißheim, Bayern, Deutschland
+
+## Häufige Fragen
+
+**Für welche Unternehmen eignen sich KI Agenten?**
+KI Agenten eignen sich für Unternehmen aller Größen mit repetitiven Prozessen, die menschliches Urteilsvermögen erfordern. Besonders effektiv in Kundenservice, Datenverarbeitung, Research und Prozesssteuerung.
+
+**Wie unterscheiden sich KI Agenten von klassischer Automatisierung?**
+Klassische Automatisierung folgt starren Regeln. KI Agenten können mit Unsicherheit umgehen, lernen und flexibel auf neue Situationen reagieren.
+
+## Expertise
+
+- Agentic AI / KI Agenten
+- Workflow Automation
+- AI Transformation
+- Software Engineering
+- Prozessoptimierung
