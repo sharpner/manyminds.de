@@ -1,5 +1,5 @@
 # robots.txt for https://manyminds.de/
-# Updated: 2025-01-07
+# Updated: 2026-01-07
 
 # ===================================
 # STANDARD WEB CRAWLERS
