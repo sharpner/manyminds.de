@@ -145,6 +145,24 @@
         scroll-behavior: smooth;
       }
 
+      /* Mobile Safari Fix - 100dvh accounts for URL bar */
+      @supports (height: 100dvh) {
+        body {
+          height: 100dvh;
+        }
+        .scroll-container {
+          height: 100dvh;
+        }
+        .hero {
+          height: 100dvh;
+          min-height: 100dvh;
+        }
+        .section {
+          height: 100dvh;
+          min-height: 100dvh;
+        }
+      }
+
       /* Subtle Watercolor Background */
       .atmosphere {
         position: fixed;
@@ -1815,6 +1833,10 @@
             78% nutzen KI. Nur 6% gewinnen.<br>
             <small style="font-size: 0.75em; opacity: 0.7;">— McKinsey State of AI 2025</small>
           </p>
+          <a href="#contact" class="hero-cta">
+            Erstgespräch vereinbaren
+            <span class="hero-cta-arrow">→</span>
+          </a>
         </div>
         <div class="hero-visual">
           <div class="hero-visual-inner">
@@ -2000,9 +2022,9 @@
 
         <div class="highlight-card fade-up" style="margin-top: var(--space-xl);">
           <p>
-            Diese Technologien sind im Einsatz bei <a href="https://projectfit.ai">projectfit.ai</a> –
-            täglich tausende automatisierte Enrichment-Prozesse, Multi-Source-Validierung,
-            AI-gestützte Qualitätssicherung.
+            Live bei <a href="https://projectfit.ai" target="_blank" rel="noopener">projectfit.ai</a>.<br>
+            Tausende Datensätze täglich angereichert.<br>
+            Automatisch validiert. Ohne manuellen Aufwand.
           </p>
         </div>
       </div>
@@ -2023,8 +2045,8 @@
               <div class="profile-photo-small" role="img" aria-label="Nino Wagensonner"></div>
               <div class="profile-info-compact">
                 <h3>Nino Wagensonner</h3>
-                <p>Seit 2023 KI Agenten in Produktion. 15 Jahre Technologie - Startup bis Konzern.</p>
-                <a href="https://projectfit.ai" target="_blank" rel="noopener">Mitgründer projectfit.ai</a>
+                <p>15 Jahre Software-Architektur für freenet, DIE ZEIT, Linde uvm. Seit 2020 unabhängig.</p>
+                <a href="https://projectfit.ai" target="_blank" rel="noopener">Co-Founder projectfit.ai</a>
               </div>
             </div>
 
@@ -2032,8 +2054,26 @@
               <h4>Kontakt</h4>
               <div class="contact-details-list">
                 <p>n.wagensonner@manyminds.de</p>
-                <p>Unterschleißheim - Remote & vor Ort</p>
+                <p>Unterschleißheim · Remote & vor Ort</p>
                 <p><a href="https://manyminds.github.io/Portfolio.pdf" target="_blank" rel="noopener">CV/Portfolio (PDF)</a></p>
+              </div>
+            </div>
+
+            <div class="contact-details-card">
+              <h4>Im Erstgespräch</h4>
+              <div class="contact-details-list">
+                <p>✓ Analyse Ihrer aktuellen Prozesse</p>
+                <p>✓ Konkrete Automatisierungspotenziale</p>
+                <p>✓ Realistische Einschätzung: Was geht, was nicht</p>
+                <p>✓ Keine Verkaufspräsentation</p>
+              </div>
+            </div>
+
+            <div class="contact-details-card">
+              <h4>Schwerpunkte</h4>
+              <div class="contact-details-list">
+                <p>LLM-Integration · KI-Agenten · API-Architektur</p>
+                <p>Go · TypeScript · Flutter · Kubernetes</p>
               </div>
             </div>
 
@@ -2124,6 +2164,12 @@
     </footer>
 
     </div><!-- End Scroll Container -->
+
+    <!-- Sticky CTA -->
+    <a href="#contact" class="sticky-cta" id="stickyCta">
+      Erstgespräch vereinbaren
+      <span class="sticky-cta-arrow">→</span>
+    </a>
 
     <script>
       // Mobile navigation
@@ -2451,23 +2497,31 @@
       // ========== STICKY CTA ==========
       const stickyCta = document.getElementById('stickyCta');
       const contactSection = document.getElementById('contact');
+      const heroSection = document.querySelector('.hero');
       let contactVisible = false;
+      let heroVisible = true;
 
       // Track when contact section is visible
       const stickyCtaObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach(entry => {
-            contactVisible = entry.isIntersecting;
-            updateStickyCta();
+            if (entry.target === contactSection) {
+              contactVisible = entry.isIntersecting;
+            }
+            if (entry.target === heroSection) {
+              heroVisible = entry.isIntersecting;
+            }
           });
+          updateStickyCta();
         },
         { root: scrollContainer, threshold: 0.3 }
       );
       stickyCtaObserver.observe(contactSection);
+      stickyCtaObserver.observe(heroSection);
 
       function updateStickyCta() {
-        // Always visible except on contact section
-        stickyCta.classList.toggle('visible', !contactVisible);
+        // Hide on hero (has own CTA) and contact section
+        stickyCta.classList.toggle('visible', !contactVisible && !heroVisible);
       }
 
       scrollContainer.addEventListener('scroll', updateStickyCta, { passive: true });
