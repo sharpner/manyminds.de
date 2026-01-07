@@ -1,47 +1,46 @@
-# ManyMinds - KI Agenten für Unternehmen
+# Nino Wagensonner - KI Agenten Berater
 
-> KI-Beratung für Unternehmen: Wir entwickeln autonome KI Agenten, die eigenständig Workflows ausführen. Potenzialanalyse, Implementierung und Team-Befähigung aus einer Hand.
+> Ich baue KI Agenten die eigenständig arbeiten. Keine Demos, keine Slides - Systeme die in Produktion laufen.
 
-ManyMinds wurde von Nino Wagensonner gegründet. Mit 15+ Jahren Erfahrung in Softwareentwicklung und Produktion helfen wir Unternehmen, KI Agenten erfolgreich einzusetzen.
+## Über mich
 
-## Was sind KI Agenten?
+15 Jahre Software-Architektur für freenet, DIE ZEIT, Brainloop und andere. Seit 2020 unabhängig. Co-Founder von projectfit.ai.
 
-KI Agenten sind autonome Softwaresysteme, die eigenständig Aufgaben erledigen. Im Gegensatz zu einfachen Chatbots können sie:
-- Komplexe Workflows ausführen
-- Entscheidungen treffen
-- Mit verschiedenen Systemen interagieren
-- Aus Erfahrung lernen
-- Natürliche Sprache verstehen
-
-## Unsere Leistungen
+## Leistungen
 
 ### Potenzialanalyse
-Wir identifizieren, welche Ihrer Prozesse KI Agenten übernehmen können und wo der größte Hebel für Ihr Geschäft liegt.
+Welche Prozesse können KI Agenten übernehmen? Wo liegt der größte Hebel? Realistische Einschätzung von Aufwand und Ertrag.
 
 ### Implementierung
-Aufbau von Workflows, die eigenständig arbeiten. Integration in Ihre bestehende Systemlandschaft. Iterative Entwicklung mit messbaren Ergebnissen.
+Aufbau von Workflows, die eigenständig arbeiten. Integration in bestehende Systeme. Keine Abhängigkeit von Einzellösungen.
 
 ### Team-Befähigung
-Nachhaltige KI-Kompetenz im Team aufbauen. Wir transferieren Wissen, damit Ihr Team selbstständig weiterentwickeln kann.
+Ihr Team lernt, mit KI Agenten zu arbeiten. Dauerhafte Kompetenz statt externer Abhängigkeit.
+
+## Technologie
+
+- Multi-Agent Systeme
+- Knowledge Graphs & RAG (Graphiti, FalkorDB)
+- LLM Benchmarking
+- Produktions-Pipelines (Go, TypeScript, Flutter, Kubernetes)
+
+## In Produktion
+
+**projectfit.ai** - Crawlt täglich tausende Unternehmenswebsites, extrahiert strukturierte Daten, validiert Leads automatisch. Läuft seit 2024 ohne Ausfälle.
 
 ## Kontakt
 
 - Website: https://manyminds.de
 - E-Mail: n.wagensonner@manyminds.de
-- Standort: Unterschleißheim, Bayern, Deutschland
+- Standort: Unterschleißheim bei München
+- Remote & vor Ort
 
-## Häufige Fragen
+## Für wen
 
-**Für welche Unternehmen eignen sich KI Agenten?**
-KI Agenten eignen sich für Unternehmen aller Größen mit repetitiven Prozessen, die menschliches Urteilsvermögen erfordern. Besonders effektiv in Kundenservice, Datenverarbeitung, Research und Prozesssteuerung.
+Ideal für Unternehmen die:
+- Konkrete Automatisierung suchen, keine PowerPoint-Strategie
+- Interne Kompetenz aufbauen wollen
+- Bereit sind, etablierte Prozesse zu hinterfragen
+- Praxiserfahrung über Theorie stellen
 
-**Wie unterscheiden sich KI Agenten von klassischer Automatisierung?**
-Klassische Automatisierung folgt starren Regeln. KI Agenten können mit Unsicherheit umgehen, lernen und flexibel auf neue Situationen reagieren.
-
-## Expertise
-
-- Agentic AI / KI Agenten
-- Workflow Automation
-- AI Transformation
-- Software Engineering
-- Prozessoptimierung
+Nicht ideal: Wer nur eine "KI-Strategie" für den Vorstand braucht.
