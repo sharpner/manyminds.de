@@ -1,0 +1,47 @@
+# ManyMinds - AI Agents for Business
+
+> AI consulting for companies: We build autonomous AI agents that execute workflows independently. Analysis, implementation, and team enablement from a single source.
+
+ManyMinds was founded by Nino Wagensonner. With 15+ years of software development and production experience, we help companies successfully deploy AI agents.
+
+## What Are AI Agents?
+
+AI agents are autonomous software systems that complete tasks independently. Unlike simple chatbots, they can:
+- Execute complex workflows
+- Make decisions
+- Interact with various systems
+- Learn from experience
+- Understand natural language
+
+## Our Services
+
+### Potential Analysis
+We identify which of your processes AI agents can take over and where the biggest leverage for your business lies.
+
+### Implementation
+Building workflows that work autonomously. Integration into your existing system landscape. Iterative development with measurable results.
+
+### Team Enablement
+Building lasting AI competence in your team. We transfer knowledge so your team can continue to develop independently.
+
+## Contact
+
+- Website: https://manyminds.de
+- Email: n.wagensonner@manyminds.de
+- Location: Munich Area, Bavaria, Germany
+
+## Common Questions
+
+**Which companies are AI agents suitable for?**
+AI agents are suitable for companies of all sizes with repetitive processes that require human judgment. Especially effective in customer service, data processing, research, and process control.
+
+**How do AI agents differ from traditional automation?**
+Traditional automation follows rigid rules. AI agents can handle uncertainty, learn, and flexibly respond to new situations.
+
+## Expertise
+
+- Agentic AI / AI Agents
+- Workflow Automation
+- AI Transformation
+- Software Engineering
+- Process Optimization
