@@ -145,12 +145,11 @@
         margin-top: 8px;
       }
 
-      /* Scroll Container - the key to working scroll-snap */
+      /* Scroll Container */
       .scroll-container {
         height: 100vh;
         overflow-y: scroll;
         overflow-x: hidden;
-        scroll-snap-type: y mandatory;
         scroll-behavior: smooth;
       }
 
@@ -302,8 +301,6 @@
         position: relative;
         padding: var(--space-4xl) var(--space-lg);
         overflow: hidden;
-        scroll-snap-align: start;
-        scroll-snap-stop: always;
       }
 
       .hero-inner {
@@ -473,8 +470,6 @@
         height: 100vh;
         min-height: 100vh;
         padding: var(--space-xl) var(--space-lg);
-        scroll-snap-align: start;
-        scroll-snap-stop: always;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -1061,8 +1056,6 @@
         min-height: 100vh;
         padding: var(--space-xl) var(--space-lg);
         border-top: 1px solid var(--border-subtle);
-        scroll-snap-align: start;
-        scroll-snap-stop: always;
         display: flex;
         flex-direction: column;
         justify-content: center;
