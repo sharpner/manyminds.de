@@ -2234,7 +2234,7 @@
         #contact .contact-panel-right {
           padding: 12px !important;
           border-radius: 16px !important;
-          overflow: hidden !important;
+          overflow: visible !important;
         }
 
         .booking-widget-embedded .calendar-grid {
@@ -2280,6 +2280,21 @@
         .booking-widget-embedded .scarcity-badge {
           font-size: 12px !important;
           padding: 6px 12px !important;
+        }
+      }
+
+      @media (max-width: 480px) and (max-height: 700px) {
+        #contact {
+          height: auto !important;
+          min-height: 100vh !important;
+          justify-content: flex-start !important;
+          overflow-y: auto !important;
+          padding-top: 12px !important;
+          padding-bottom: 20px !important;
+        }
+
+        #contact .contact-calendar-unified {
+          min-height: auto !important;
         }
       }
     </style>
@@ -2834,15 +2849,33 @@
         return getBookedSlots().includes(`${date}T${time}`);
       }
 
+      function getFirstAvailableDate() {
+        const dates = Object.keys(AVAILABLE_SLOTS).filter(date => AVAILABLE_SLOTS[date].length > 0);
+        if (dates.length === 0) return null;
+
+        return dates.sort()[0];
+      }
+
+      function showFirstAvailableMonth() {
+        const firstDate = getFirstAvailableDate();
+        if (!firstDate) return;
+
+        const [year, month] = firstDate.split('-').map(Number);
+        currentYear = year;
+        currentMonth = month - 1;
+      }
+
       // Fetch slots from API
       async function loadSlots() {
         try {
           const res = await fetch('/api/slots');
-          if (res.ok) {
-            const data = await res.json();
-            AVAILABLE_SLOTS = data.slots;
-            renderCalendar();
-          }
+          if (!res.ok) return;
+
+          const data = await res.json();
+          AVAILABLE_SLOTS = data.slots;
+          showFirstAvailableMonth();
+          renderCalendar();
+          updateScarcityBadge();
         } catch (err) {
           console.error('Failed to load slots:', err);
         }
@@ -2859,7 +2892,8 @@
       function getDayNames() { return (typeof currentLang !== 'undefined' && currentLang === 'en') ? dayNamesEn : dayNamesDe; }
 
       function updateScarcityBadge() {
-        const futureMonth = (new Date().getMonth() + 2) % 12;
+        const firstDate = getFirstAvailableDate();
+        const futureMonth = firstDate ? Number(firstDate.split('-')[1]) - 1 : (new Date().getMonth() + 2) % 12;
         const prefix = currentLang === 'en' ? 'Slots from' : 'Termine ab';
         document.getElementById('scarcityBadge').textContent = `${prefix} ${getMonthNames()[futureMonth]}`;
       }
@@ -2915,11 +2949,46 @@
         grid.innerHTML = html;
       }
 
+      function getCalendarLocale() {
+        return (typeof currentLang !== 'undefined' && currentLang === 'en') ? 'en-US' : 'de-DE';
+      }
+
+      function getTimeSuffix() {
+        return (typeof currentLang !== 'undefined' && currentLang === 'en') ? '' : ' Uhr';
+      }
+
+      function getAvailableTimesLabel() {
+        return (typeof currentLang !== 'undefined' && currentLang === 'en') ? 'Available times:' : 'Verfügbare Zeiten:';
+      }
+
+      function getSelectedSlotText(date, time) {
+        const formattedDate = date.toLocaleDateString(getCalendarLocale(), {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+
+        if (typeof currentLang !== 'undefined' && currentLang === 'en') {
+          return `${formattedDate} at ${time}`;
+        }
+
+        return `${formattedDate} um ${time} Uhr`;
+      }
+
+      function showTimeSlots() {
+        const container = document.getElementById('timeSlots');
+        if (!container || !window.matchMedia('(max-width: 480px) and (max-height: 700px)').matches) return;
+
+        container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
       function selectDate(dateStr) {
         selectedDate = dateStr;
         selectedTime = null;
         renderCalendar();
         renderTimeSlots(dateStr);
+        showTimeSlots();
       }
 
       function renderTimeSlots(dateStr) {
@@ -2931,13 +3000,14 @@
           return;
         }
 
+        const timeSuffix = getTimeSuffix();
         container.innerHTML = `
-          <p>Verfügbare Zeiten:</p>
+          <p>${getAvailableTimesLabel()}</p>
           ${slots.map(time => {
             const booked = isSlotBooked(dateStr, time);
             return booked
-              ? `<span class="time-slot booked">✓ ${time} Uhr</span>`
-              : `<button type="button" class="time-slot" data-time="${time}">${time} Uhr</button>`;
+              ? `<span class="time-slot booked">✓ ${time}${timeSuffix}</span>`
+              : `<button type="button" class="time-slot" data-time="${time}">${time}${timeSuffix}</button>`;
           }).join('')}
         `;
       }
@@ -2972,12 +3042,7 @@
         if (!selectedDate || !selectedTime) return;
 
         const date = new Date(selectedDate + 'T' + selectedTime);
-        const formatted = date.toLocaleDateString('de-DE', {
-          weekday: 'long',
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        }) + ` um ${selectedTime} Uhr`;
+        const formatted = getSelectedSlotText(date, selectedTime);
 
         document.getElementById('selectedSlotDisplay').textContent = formatted;
         document.getElementById('bookingModal').classList.add('active');
@@ -3004,6 +3069,13 @@
 
       // Badge click -> jump to future month
       document.getElementById('scarcityBadge').addEventListener('click', () => {
+        const firstDate = getFirstAvailableDate();
+        if (firstDate) {
+          showFirstAvailableMonth();
+          renderCalendar();
+          return;
+        }
+
         const now = new Date();
         currentMonth = (now.getMonth() + 2) % 12;
         currentYear = now.getMonth() >= 10 ? now.getFullYear() + 1 : now.getFullYear();
