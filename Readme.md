@@ -16,6 +16,8 @@ Vorschau: **http://localhost:5173**. Der lokale Express-Server verwendet dieselb
 
 Für einen echten Mailversand muss `RESEND_API_KEY` in `.env.local` beziehungsweise der Vercel-Umgebung gesetzt sein. Keine Zugangsdaten einchecken. Tests ersetzen ausschließlich den externen Maildienst; die Browserprüfungen verwenden die echten lokalen Slot-Endpunkte und versenden keine Mail.
 
+`npm test` umfasst außerdem einen nativen Node-Lauf der kompilierten API-Handler (`test:runtime`). Die TypeScript-Konfiguration nutzt `NodeNext` für Modulformat und Auflösung, passend zum Vercel-Node-Builder. Der Test prüft den Start ohne tsx, echte HTTP-Slot-Antworten und die Ablehnung ungültiger Buchungsanfragen. Er ersetzt keinen Smoke-Test des veröffentlichten Vercel-Deployments.
+
 ## Inhalt und Quellen
 
 Die neue Positionierung stammt aus den ausdrücklichen Nutzerangaben vom 04.11.2026: technischer Generalist, breite praktische Erfahrung, gründliche und pragmatische Arbeitsweise; KI erweitert diese Expertise. Neue, knappe Texte sind ausdrücklich beauftragt. Die frühere Pflicht zur wortgleichen Übernahme der alten Marketingtexte ist damit ersetzt.
@@ -29,6 +31,9 @@ Die neue Positionierung stammt aus den ausdrücklichen Nutzerangaben vom 04.11.2
 - Unzutreffend zugeschriebene McKinsey-/Gartner-Aussagen sowie das unbelegte Ausfallfreiheitsversprechen wurden aus Deutsch, Englisch, Metadaten und LLM-Kurzfassungen entfernt.
 - Die Website ist die aktuelle Inhaltsquelle; `agent-files/design-judge/copy-v1.txt` dokumentiert den vorausgegangenen redaktionellen Entwurf.
 - Die hervorgehobene Referenz ist auf Nutzerwunsch jetzt projectfit.ai. Bei DIE ZEIT steht ausdrücklich „Mitentwicklung“.
+- V2 vertieft projectfit.ai, die Performance-Anforderung der ZEIT Shop App auf günstigen Android-Geräten und Brainloops Anforderungen an sensible Daten. Grundlage sind die jeweiligen Projektseiten im Portfolio; Anforderungen werden nicht als gemessene Ergebnisse ausgegeben.
+- Die Produktansicht stammt aus `https://projectfit.ai/assets/home/hero-dashboard.jpg`, der öffentlich veröffentlichten Beispielansicht. Optimierte lokale WebP-Varianten liegen in `assets/projectfit/`; das Bild ist ausdrücklich als Beispielansicht bezeichnet und kein Live-Dashboard.
+- Die Arbeitsweise verbindet die Nutzerangaben zu User Journey, Performance, Sicherheit und Pragmatismus mit Zusammenarbeit, früher nutzbarer Software und Rückmeldungen aus dem [Agilen Manifest](https://agilemanifesto.org/iso/de/manifesto) und seinen [Prinzipien](https://agilemanifesto.org/iso/de/principles.html). Eigene Formulierung, keine behauptete Zertifizierung oder kopiertes Manifest.
 - Das Impressum liegt auf einer eigenen Seite `impressum.html`, direkt im Footer verlinkt und ohne JavaScript lesbar. Betreiber ist Nino Wagensonner persönlich. Der Nutzer wünscht ausdrücklich nur „85716 Unterschleißheim“ als Ortsangabe; Straße und Hausnummer fehlen weiterhin. Die Seite ist deshalb nicht als vollständiges geschäftliches Impressum abgenommen. Die Umsatzsteuer-ID stammt aus dem bisherigen persönlichen Impressum.
 
 ## Gestaltung

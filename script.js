@@ -1,6 +1,25 @@
 "use strict";
 const translations = {
   en: {
+    "case.imageAlt": "projectfit.ai: dashboard with project suggestions and matching skills",
+    "case.zoom": "Enlarge view ↗",
+    "case.caption": "Inside the product · Published example screen from projectfit.ai",
+    "case.questionLabel": "The challenge",
+    "case.question": "Which projects are a real fit?",
+    "case.problem": "Freelancers need to find suitable opportunities among many listings. projectfit.ai matches skills and preferences with project requirements. The central challenge is understanding what someone can do, even when the project uses different terms.",
+    "case.workLabel": "My contribution",
+    "case.work": "From matching to the application.",
+    "case.detail": "As a co-founder, I combine product development with LLM and prompt engineering and integration in TypeScript and React. My work also includes sales and business development: I focus on both the technical solution and its value to customers.",
+    "zeit.heading": "A shopping app needs to run smoothly on modest devices, too.",
+    "zeit.detail": "My contribution to the ZEIT Shop app included Flutter development, Shopware integration and automated releases for iOS and Android. Smooth interaction across device tiers, including budget Android phones, was a key requirement.",
+    "brainloop.heading": "Confidential data brings its own requirements.",
+    "brainloop.detail": "At Brainloop, I worked on secure data rooms in a microservices environment and on migrating highly sensitive data. This included using Vault for cluster credentials. Data consistency and protecting confidential information were central requirements of this work.",
+    "principle.0.title": "Start with the user journey.",
+    "principle.0.text": "What do people want to achieve with the software? Where do they lose time or get stuck? I walk through the process with you. Together, we establish what the solution needs to do.",
+    "principle.1.title": "Choose technology for the task.",
+    "principle.1.text": "Usability, performance, security and operations all inform my technology choices. I assess what can be reused and which solution your team can maintain over time.",
+    "principle.2.title": "Use it early. Learn together.",
+    "principle.2.text": "We put a usable version into users’ hands early. Their feedback shows where we are on track and what needs to change. What we learn informs the next steps.",
     portfolio: "View portfolio (PDF)",
     "case.kicker": "Building our own product",
     "case.context": "AI-powered project matching for IT freelancers",
@@ -129,6 +148,10 @@ document
   .querySelectorAll("[data-i18n]")
   .forEach((node) => originals.set(node, node.innerHTML));
 const placeholders = new Map();
+const imageDescriptions = new Map();
+document
+  .querySelectorAll("[data-i18n-alt]")
+  .forEach((node) => imageDescriptions.set(node, node.alt));
 document
   .querySelectorAll("[data-i18n-placeholder]")
   .forEach((node) => placeholders.set(node, node.placeholder));
@@ -168,6 +191,9 @@ function setLanguage(lang) {
       lang === "en"
         ? (translations.en[node.dataset.i18nPlaceholder] ?? original)
         : original;
+  }
+  for (const [node, original] of imageDescriptions) {
+    node.alt = lang === "en" ? (translations.en[node.dataset.i18nAlt] ?? original) : original;
   }
   $("langToggle").textContent = lang === "de" ? "EN" : "DE";
   $("langToggle").setAttribute(

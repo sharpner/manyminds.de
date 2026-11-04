@@ -185,7 +185,32 @@ test("content and navigation remain accessible without JavaScript", async ({
   ).toBeVisible();
   await expect(page.locator("#bookingWidget")).toBeHidden();
   await expect(page.locator("noscript p")).toContainText("per E-Mail");
+  const detail = page.locator(".case-notes details").first();
+  await detail.locator("summary").click();
+  await expect(detail.locator(".case-note-body")).toBeVisible();
+  await expect(detail).toContainText("günstigen Android-Geräten");
   await context.close();
+});
+
+test("project insights work by keyboard and remain open when changing language", async ({ page }) => {
+  await page.goto("/");
+  const detail = page.locator(".case-notes details").first();
+  await detail.locator("summary").focus();
+  await page.keyboard.press("Enter");
+  await expect(detail.locator(".case-note-body")).toBeVisible();
+  await page.locator("#langToggle").click();
+  await expect(detail).toContainText("budget Android phones");
+  await expect(detail.locator(".case-note-body")).toBeVisible();
+  const productImage = page.locator(".product-view img");
+  await expect(productImage).toHaveAttribute("alt", "projectfit.ai: dashboard with project suggestions and matching skills");
+  await expect(page.locator(".working-principles")).toContainText("Start with the user journey.");
+  await productImage.scrollIntoViewIfNeeded();
+  await expect(productImage).toBeVisible();
+  expect(await productImage.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
+  await page.locator("#langToggle").click();
+  await expect(detail).toContainText("günstigen Android-Geräten");
+  await expect(productImage).toHaveAttribute("alt", "projectfit.ai: Dashboard mit Projektvorschlägen und zugeordneten Fähigkeiten");
+  await expect(page.locator(".working-principles")).toContainText("Beim Nutzungsweg anfangen.");
 });
 
 test("200% text size and increased spacing reflow without clipping", async ({
