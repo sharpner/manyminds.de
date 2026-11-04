@@ -1,0 +1,9 @@
+ressources/
+agent-files/
+tests/
+scripts/
+.git/
+.env*
+*.md
+animate-splash.py
+gemini-review.sh

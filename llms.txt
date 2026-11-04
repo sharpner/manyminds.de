@@ -1,46 +1,25 @@
-# Nino Wagensonner - KI Agenten Berater
+# Nino Wagensonner — Technische Beratung und Umsetzung
 
-> Ich baue KI Agenten die eigenständig arbeiten. Keine Demos, keine Slides - Systeme die in Produktion laufen.
-
-## Über mich
-
-15 Jahre Software-Architektur für freenet, DIE ZEIT, Brainloop und andere. Seit 2020 unabhängig. Co-Founder von projectfit.ai.
+Technischer Generalist. Fast 20 Jahre Berufserfahrung mit Software und IT aus unterschiedlichen Projekten, Branchen und Rollen. Die berufliche Laufbahn beginnt 2009 mit der Ausbildung zum Fachinformatiker für Anwendungsentwicklung.
 
 ## Leistungen
+- Technische Entscheidungen: Software prüfen, Möglichkeiten einordnen, nächste Schritte erarbeiten.
+- Entwicklung und Umsetzung: Anwendungen entwickeln, Systeme verbinden, bestehende Software modernisieren.
+- KI im Arbeitsalltag: geeignete Aufgaben prüfen, Abläufe entwickeln, Systeme anbinden.
+- Zusammenarbeit mit Teams: in Projekte einsteigen, technische Fragen klären, Wissen teilen.
 
-### Potenzialanalyse
-Welche Prozesse können KI Agenten übernehmen? Wo liegt der größte Hebel? Realistische Einschätzung von Aufwand und Ertrag.
+## Projekterfahrung
+- freenet: GraphQL- und API-Architektur.
+- DIE ZEIT: Mitentwicklung der ZEIT Shop App, Shopware-Anbindung, automatisierte Veröffentlichung.
+- Brainloop: sichere Datenräume, Microservices und Migration sensibler Daten.
+- aidhere: App- und Backend-Entwicklung, Team-Mentoring.
 
-### Implementierung
-Aufbau von Workflows, die eigenständig arbeiten. Integration in bestehende Systeme. Keine Abhängigkeit von Einzellösungen.
+Projektrollen sind im Portfolio dokumentiert und keine Kundentestimonials.
 
-### Team-Befähigung
-Ihr Team lernt, mit KI Agenten zu arbeiten. Dauerhafte Kompetenz statt externer Abhängigkeit.
-
-## Technologie
-
-- Multi-Agent Systeme
-- Knowledge Graphs & RAG (Graphiti, FalkorDB)
-- LLM Benchmarking
-- Produktions-Pipelines (Go, TypeScript, Flutter, Kubernetes)
-
-## In Produktion
-
-**projectfit.ai** - Crawlt täglich tausende Unternehmenswebsites, extrahiert strukturierte Daten, validiert Leads automatisch. Läuft seit 2024 ohne Ausfälle.
-
-## Kontakt
-
-- Website: https://manyminds.de
+## Quellen und Kontakt
+- Website: https://manyminds.de/
+- Portfolio: https://manyminds.github.io/Portfolio.pdf
+- Eigene GmbH: https://isar-innovations.dev/
+- Forschung: https://isar-innovations.dev/research
 - E-Mail: n.wagensonner@manyminds.de
-- Standort: Unterschleißheim bei München
-- Remote & vor Ort
-
-## Für wen
-
-Ideal für Unternehmen die:
-- Konkrete Automatisierung suchen, keine PowerPoint-Strategie
-- Interne Kompetenz aufbauen wollen
-- Bereit sind, etablierte Prozesse zu hinterfragen
-- Praxiserfahrung über Theorie stellen
-
-Nicht ideal: Wer nur eine "KI-Strategie" für den Vorstand braucht.
+- Standort: Unterschleißheim bei München. Remote und vor Ort.

@@ -1,46 +1,25 @@
-# Nino Wagensonner - AI Agents Consultant
+# Nino Wagensonner — Technical consulting and delivery
 
-> I build AI agents that work autonomously. No demos, no slides - systems that run in production.
-
-## About
-
-15 years software architecture for freenet, DIE ZEIT, Brainloop and others. Independent since 2020. Co-founder of projectfit.ai.
+Technical generalist with almost 20 years of professional experience in software and IT across different projects, industries and roles. His professional career began in 2009 with an apprenticeship in software development.
 
 ## Services
+- Technical decisions: assessing software, weighing options and planning next steps.
+- Development and delivery: developing applications, connecting systems and modernising existing software.
+- AI in everyday work: assessing suitable tasks, developing workflows and integrating systems.
+- Working with teams: joining projects, resolving technical questions and sharing knowledge.
 
-### Potential Analysis
-Which processes can AI agents take over? Where's the biggest leverage? Realistic assessment of effort and return.
+## Project experience
+- freenet: GraphQL and API architecture.
+- DIE ZEIT: contribution to the development of the ZEIT Shop app, Shopware integration and automated releases.
+- Brainloop: secure data rooms, microservices and sensitive data migration.
+- aidhere: app and backend development, team mentoring.
 
-### Implementation
-Building workflows that work autonomously. Integration into existing systems. No dependency on single solutions.
+The portfolio documents project contributions, not customer testimonials.
 
-### Team Enablement
-Your team learns to work with AI agents. Lasting competence instead of external dependency.
-
-## Technology
-
-- Multi-Agent Systems
-- Knowledge Graphs & RAG (Graphiti, FalkorDB)
-- LLM Benchmarking
-- Production Pipelines (Go, TypeScript, Flutter, Kubernetes)
-
-## In Production
-
-**projectfit.ai** - Crawls thousands of company websites daily, extracts structured data, validates leads automatically. Running since 2024 without downtime.
-
-## Contact
-
-- Website: https://manyminds.de
+## Sources and contact
+- Website: https://manyminds.de/
+- Portfolio: https://manyminds.github.io/Portfolio.pdf
+- Own company: https://isar-innovations.dev/
+- Research: https://isar-innovations.dev/research
 - Email: n.wagensonner@manyminds.de
-- Location: Munich Area, Germany
-- Remote & On-site
-
-## For Whom
-
-Ideal for companies that:
-- Want real automation, not PowerPoint strategy
-- Want to build internal competence
-- Are ready to question established processes
-- Value hands-on experience over theory
-
-Not for you if "AI strategy" means a nice slide deck.
+- Location: Unterschleissheim near Munich, Germany. Remote and on-site.

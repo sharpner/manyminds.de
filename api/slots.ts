@@ -1,32 +1,32 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
+import type { ApiRequest, ApiResponse } from "./http";
 
 export type SlotsByDate = Record<string, string[]>;
 
 const ALLOWED_ORIGINS = new Set([
-  'https://manyminds.de',
-  'https://www.manyminds.de',
-  'http://localhost:3000',
-  'http://localhost:5173'
+  "https://manyminds.de",
+  "https://www.manyminds.de",
+  "http://localhost:3000",
+  "http://localhost:5173",
 ]);
 const MONTHS_AHEAD = 2;
 const MONTHS_TO_PUBLISH = 4;
 const MAX_SLOTS_PER_MONTH = 5;
 
 const SLOT_RULES = [
-  { weekday: 2, times: ['10:00'] },
-  { weekday: 3, times: ['14:00'] },
-  { weekday: 5, times: ['09:00', '15:00'] }
+  { weekday: 2, times: ["10:00"] },
+  { weekday: 3, times: ["14:00"] },
+  { weekday: 5, times: ["09:00", "15:00"] },
 ];
 
-function applyCors(req: VercelRequest, res: VercelResponse): void {
+function applyCors(req: ApiRequest, res: ApiResponse): void {
   const origin = req.headers.origin;
-  if (typeof origin !== 'string') return;
+  if (typeof origin !== "string") return;
   if (!ALLOWED_ORIGINS.has(origin)) return;
 
-  res.setHeader('Access-Control-Allow-Origin', origin);
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  res.setHeader('Vary', 'Origin');
+  res.setHeader("Access-Control-Allow-Origin", origin);
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Vary", "Origin");
 }
 
 function getMinDate(now = new Date()): Date {
@@ -40,13 +40,13 @@ function getMinDate(now = new Date()): Date {
 function formatDateKey(date: Date): string {
   return [
     date.getFullYear(),
-    String(date.getMonth() + 1).padStart(2, '0'),
-    String(date.getDate()).padStart(2, '0')
-  ].join('-');
+    String(date.getMonth() + 1).padStart(2, "0"),
+    String(date.getDate()).padStart(2, "0"),
+  ].join("-");
 }
 
 function slotTimesForDate(date: Date): string[] {
-  const rule = SLOT_RULES.find(item => item.weekday === date.getDay());
+  const rule = SLOT_RULES.find((item) => item.weekday === date.getDay());
   if (!rule) return [];
 
   return rule.times;
@@ -77,7 +77,11 @@ export function getAvailableSlots(now = new Date()): SlotsByDate {
   const slots: SlotsByDate = {};
 
   for (let offset = 0; offset < MONTHS_TO_PUBLISH; offset++) {
-    const monthDate = new Date(minDate.getFullYear(), minDate.getMonth() + offset, 1);
+    const monthDate = new Date(
+      minDate.getFullYear(),
+      minDate.getMonth() + offset,
+      1,
+    );
     addMonthSlots(slots, monthDate.getFullYear(), monthDate.getMonth());
   }
 
@@ -85,7 +89,7 @@ export function getAvailableSlots(now = new Date()): SlotsByDate {
 }
 
 export function isAvailableSlot(slot: string, now = new Date()): boolean {
-  const [date, time] = slot.split('T');
+  const [date, time] = slot.split("T");
   if (!date || !time) return false;
 
   const availableTimes = getAvailableSlots(now)[date];
@@ -99,15 +103,15 @@ function getAvailableSlotsResponse(): SlotsByDate {
   return getAvailableSlots(now);
 }
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function handler(req: ApiRequest, res: ApiResponse) {
   applyCors(req, res);
 
-  if (req.method === 'OPTIONS') {
+  if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
 
-  if (req.method !== 'GET') {
-    return res.status(405).json({ error: 'Method not allowed' });
+  if (req.method !== "GET") {
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
   return res.status(200).json({ slots: getAvailableSlotsResponse() });

@@ -1,5 +1,5 @@
 # robots.txt for https://manyminds.de/
-# Updated: 2026-01-07
+# Updated: 2026-11-04
 
 # ===================================
 # STANDARD WEB CRAWLERS
@@ -16,7 +16,7 @@ Sitemap: https://manyminds.de/sitemap.xml
 Disallow: /admin/
 Disallow: /private/
 Disallow: /.git/
-Disallow: /claude-files/
+Disallow: /agent-files/
 Disallow: /node_modules/
 
 # ===================================
