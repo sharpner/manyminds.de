@@ -39,7 +39,9 @@ test("all local assets and fragment targets resolve, IDs are unique, semantic pa
       continue;
     }
     if (/^(?:https?:|mailto:)/.test(path)) continue;
-    assert.ok(fs.existsSync(path.replace(/^\//, "")), path);
+    const assetUrl = new URL(path, "https://manyminds.de/");
+    const filename = decodeURIComponent(assetUrl.pathname).replace(/^\//, "");
+    assert.ok(fs.existsSync(filename), path);
   }
 });
 test("design colors meet AA text contrast", () => {

@@ -86,7 +86,7 @@ const translations = {
     "hero.title":
       'Technical consulting<br><span class="accent">and delivery.</span>',
     "hero.intro":
-      "Developing software, connecting systems, putting AI to work: I assess what is needed and make it happen.",
+      "I enjoy working with people who want to make a difference, in startups and established businesses alike. I consider the whole picture, from the business model and technology to everyday use. Together, we turn good ideas into thoughtfully designed products.",
     "hero.cta": "Discuss your project",
     "hero.years": "Almost 20",
     "hero.experience":
