@@ -61,6 +61,8 @@ Die lokale Fassung nutzt eine eigene, reduzierte Gestaltung. Die politische Refe
 - Native Tastaturbedienung, Skip-Link, Fokusführung, Formularzustände und echtes Kalender-API bleiben erhalten.
 - Ohne JavaScript sind Text, Navigation, Portfolio und E-Mail nutzbar. EN per `?lang=en` oder Sprachschalter.
 - Browserprüfungen bei 320/390/768/1440/1920px, 200% Textgröße und reduzierter Bewegung. Axe ergänzt die Sichtprüfung, zertifiziert keine vollständige WCAG-Konformität.
+- Die ausgelieferten Inter-Latin-Subsets behalten sämtliche im aktuellen deutschen und englischen Inhalt verwendeten Zeichen der Originalfonts, einschließlich Umlauten und ß. Originalfonts und OFL-Lizenz bleiben erhalten. Glyphenkonturen und Zeichenbreiten wurden beim Sol-Review auf Gleichheit geprüft. Die drei Fontdateien benötigen zusammen rund 97 statt 227 KB.
+- Ein lokaler simulierter mobiler Lighthouse-Vergleich ergab nach der Schriftoptimierung 87 → 92 für Performance und 3,8 → 3,2 Sekunden LCP. Dies sind einzelne Labormessungen, keine Produktions-Felddaten oder garantierten Ladezeiten.
 
 ## Review-Verfahren
 

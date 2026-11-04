@@ -198,7 +198,7 @@ function setLanguage(lang) {
   $("langToggle").textContent = lang === "de" ? "EN" : "DE";
   $("langToggle").setAttribute(
     "aria-label",
-    lang === "de" ? "Switch to English" : "Auf Deutsch wechseln",
+    lang === "de" ? "EN — Switch to English" : "DE — Auf Deutsch wechseln",
   );
   $("mobileToggle").firstChild.textContent = label("menu") + " ";
   $("closeModal").setAttribute("aria-label", label("close"));
