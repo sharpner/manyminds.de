@@ -5,7 +5,7 @@ Technical generalist with almost 20 years of professional experience in software
 ## Services
 - Technical decisions: assessing software, weighing options and planning next steps.
 - Development and delivery: developing applications, connecting systems and modernising existing software.
-- AI in everyday work: assessing suitable tasks, developing workflows and integrating systems.
+- Production-ready AI applications: combining LLM expertise, workflows, model selection, training and embeddings with software engineering, integration and operations.
 - Working with teams: joining projects, resolving technical questions and sharing knowledge.
 
 ## Project experience
@@ -13,6 +13,7 @@ Technical generalist with almost 20 years of professional experience in software
 - DIE ZEIT: contribution to the development of the ZEIT Shop app, Shopware integration and automated releases.
 - Brainloop: secure data rooms, microservices and sensitive data migration.
 - aidhere: app and backend development, team mentoring.
+- projectfit.ai: co-founder, product development, LLM and prompt engineering, matching skills with projects.
 
 The portfolio documents project contributions, not customer testimonials.
 

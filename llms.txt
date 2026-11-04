@@ -5,7 +5,7 @@ Technischer Generalist. Fast 20 Jahre Berufserfahrung mit Software und IT aus un
 ## Leistungen
 - Technische Entscheidungen: Software prüfen, Möglichkeiten einordnen, nächste Schritte erarbeiten.
 - Entwicklung und Umsetzung: Anwendungen entwickeln, Systeme verbinden, bestehende Software modernisieren.
-- KI im Arbeitsalltag: geeignete Aufgaben prüfen, Abläufe entwickeln, Systeme anbinden.
+- Produktreife KI-Anwendungen: LLM-Verständnis, Workflows, Modellauswahl, Training und Embeddings mit Softwareentwicklung, Integration und Betrieb verbinden.
 - Zusammenarbeit mit Teams: in Projekte einsteigen, technische Fragen klären, Wissen teilen.
 
 ## Projekterfahrung
@@ -13,6 +13,7 @@ Technischer Generalist. Fast 20 Jahre Berufserfahrung mit Software und IT aus un
 - DIE ZEIT: Mitentwicklung der ZEIT Shop App, Shopware-Anbindung, automatisierte Veröffentlichung.
 - Brainloop: sichere Datenräume, Microservices und Migration sensibler Daten.
 - aidhere: App- und Backend-Entwicklung, Team-Mentoring.
+- projectfit.ai: Mitgründer, Produktentwicklung, LLM- und Prompt Engineering, Matching von Fähigkeiten und Projekten.
 
 Projektrollen sind im Portfolio dokumentiert und keine Kundentestimonials.
 

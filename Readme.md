@@ -32,6 +32,7 @@ Die neue Positionierung stammt aus den ausdrücklichen Nutzerangaben vom 04.11.2
 - Die Website ist die aktuelle Inhaltsquelle; `agent-files/design-judge/copy-v1.txt` dokumentiert den vorausgegangenen redaktionellen Entwurf.
 - Die hervorgehobene Referenz ist auf Nutzerwunsch jetzt projectfit.ai. Bei DIE ZEIT steht ausdrücklich „Mitentwicklung“.
 - V2 vertieft projectfit.ai, die Performance-Anforderung der ZEIT Shop App auf günstigen Android-Geräten und Brainloops Anforderungen an sensible Daten. Grundlage sind die jeweiligen Projektseiten im Portfolio; Anforderungen werden nicht als gemessene Ergebnisse ausgegeben.
+- Die vertieften Beispiele sind nach App-Entwicklung, Backend-Entwicklung, technischer Beratung und KI-Entwicklung geordnet. Der KI-Leistungsumfang einschließlich Training, Embeddings und produktreifer Anwendungen stammt aus den ergänzenden Nutzerangaben; die konkreten projectfit-Beiträge bleiben gesondert durch das Portfolio belegt.
 - Die Produktansicht ist der vom Nutzer am 04.11.2026 bereitgestellte Screenshot, unverändert in `assets/projectfit/dashboard.png` (2498 × 2356 Pixel). Die Seite zeigt einen oberen Ausschnitt; der Vergrößerungslink öffnet das vollständige Original. Er ersetzt die deutlich kleinere Marketinggrafik der Produktwebsite. Keine generierte oder nachgezeichnete Oberfläche.
 - Die Arbeitsweise verbindet die Nutzerangaben zu User Journey, Performance, Sicherheit und Pragmatismus mit Zusammenarbeit, früher nutzbarer Software und Rückmeldungen aus dem [Agilen Manifest](https://agilemanifesto.org/iso/de/manifesto) und seinen [Prinzipien](https://agilemanifesto.org/iso/de/principles.html). Eigene Formulierung, keine behauptete Zertifizierung oder kopiertes Manifest.
 - Das Impressum liegt auf einer eigenen Seite `impressum.html`, direkt im Footer verlinkt und ohne JavaScript lesbar. Betreiber ist Nino Wagensonner persönlich. Der Nutzer wünscht ausdrücklich nur „85716 Unterschleißheim“ als Ortsangabe; Straße und Hausnummer fehlen weiterhin. Die Seite ist deshalb nicht als vollständiges geschäftliches Impressum abgenommen. Die Umsatzsteuer-ID stammt aus dem bisherigen persönlichen Impressum.
@@ -75,7 +76,7 @@ Forschungsgrundlage: [MT-Bench](https://arxiv.org/abs/2306.05685), [Positionsbia
 
 ## Terminanfragen und API
 
-- `GET /api/slots`: serverseitige Wunschtermine aus `api/slots.ts`. Bestehende Regeln: Beginn zwei Kalendermonate voraus, vier Monate, maximal fünf Zeitfenster pro Monat.
+- `GET /api/slots`: serverseitige Wunschtermine aus `api/slots.ts`, ab der nächsten Kalenderwoche nach Berliner Datum. Vier Kalendermonate ab deren Beginn, maximal fünf Zeitfenster pro Monat. Dienstag 10 Uhr, Mittwoch 14 Uhr, Freitag 9/15 Uhr. Derselbe Terminbestand validiert Buchungsanfragen.
 - `POST /api/book`: validiert den Wunsch gegen dieselbe Quelle, validiert Eingaben und sendet über Resend eine Anfrage mit vorläufigem ICS-Termin.
 - Es gibt keinen verbundenen Belegungskalender und keine verbindliche Reservierung. Die Oberfläche nennt deshalb „Wunschtermin“ und zeigt `Europe/Berlin` an.
 - API-/Netzwerkfehler führen zu einer Fehlermeldung mit erneutem Versuch; keine erfundenen Ersatztermine. Erst bestätigte Annahme durch Resend liefert `success: true`. Das ist kein Nachweis der tatsächlichen Zustellung.

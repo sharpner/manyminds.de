@@ -458,6 +458,12 @@ h1 {
 .case-notes {
   margin-bottom: 24px;
 }
+.case-notes-title {
+  margin-bottom: 24px;
+}
+.case-category {
+  font-weight: 500;
+}
 .case-notes details {
   border-top: 1px solid var(--line);
 }
@@ -475,7 +481,7 @@ h1 {
 }
 .case-notes summary > span:first-child {
   display: grid;
-  grid-template-columns: 160px minmax(0, 1fr);
+  grid-template-columns: 240px minmax(0, 1fr);
   gap: 24px;
 }
 .case-client {
@@ -506,7 +512,7 @@ details[open] .detail-sign::after {
 }
 .case-note-body {
   max-width: 78ch;
-  padding: 0 0 28px 184px;
+  padding: 0 0 28px;
   color: var(--muted);
   font-size: 0.9375rem;
 }
@@ -514,6 +520,9 @@ details[open] .detail-sign::after {
   margin-top: 18px;
   font-size: 0.75rem;
   color: var(--ink);
+}
+.case-note-body p + p {
+  margin-top: 16px;
 }
 .working-principles {
   padding: 0;
