@@ -3,6 +3,7 @@ const translations = {
   en: {
     "practice.linde": "Linde Austria · through Motius:",
     "practice.title": "Experience by discipline",
+    "practice.projects": "projects",
     "practice.apps": "App development",
     "practice.apps.topics": "iOS · Android · Flutter · SwiftUI",
     "practice.apps.0": "Contribution to the shop app, with Shopware integration and automated releases. Smooth interaction on budget Android phones was a central requirement.",
