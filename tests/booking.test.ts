@@ -43,16 +43,30 @@ const payload = () => ({
   slot: availableSlot(),
 });
 
-test("slot publication crosses the year boundary and is the validation source", () => {
+test("slot publication starts next week and is the validation source", () => {
   const now = new Date("2026-11-04T12:00:00Z");
   const slots = getAvailableSlots(now);
-  assert.equal(Object.keys(slots)[0].slice(0, 7), "2027-01");
+  assert.equal(Object.keys(slots)[0], "2026-11-10");
   assert.equal(Object.values(slots).flat().length, 20);
   for (const [date, times] of Object.entries(slots)) {
     for (const time of times)
       assert.equal(isAvailableSlot(`${date}T${time}`, now), true);
   }
   assert.equal(isAvailableSlot("2026-11-04T00:00", now), false);
+  assert.equal(isAvailableSlot("2026-11-06T09:00", now), false);
+});
+test("next week follows Berlin calendar boundaries, including month, year and DST changes", () => {
+  for (const [instant, firstDate] of [
+    ["2026-11-08T22:30:00Z", "2026-11-10"],
+    ["2026-11-08T23:30:00Z", "2026-11-17"],
+    ["2026-11-25T12:00:00Z", "2026-12-01"],
+    ["2026-12-30T12:00:00Z", "2027-01-05"],
+    ["2026-03-29T22:30:00Z", "2026-04-07"],
+  ]) {
+    const slots = getAvailableSlots(new Date(instant));
+    assert.equal(Object.keys(slots)[0], firstDate, instant);
+    assert.ok(Object.keys(slots).every(date => date >= firstDate));
+  }
 });
 test("GET slots returns actual service data and refuses POST", async () => {
   const res = response();

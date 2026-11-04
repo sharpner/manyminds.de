@@ -8,9 +8,14 @@ const ALLOWED_ORIGINS = new Set([
   "http://localhost:3000",
   "http://localhost:5173",
 ]);
-const MONTHS_AHEAD = 2;
 const MONTHS_TO_PUBLISH = 4;
 const MAX_SLOTS_PER_MONTH = 5;
+const berlinDate = new Intl.DateTimeFormat("en-CA", {
+  timeZone: "Europe/Berlin",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+});
 
 const SLOT_RULES = [
   { weekday: 2, times: ["10:00"] },
@@ -30,36 +35,40 @@ function applyCors(req: ApiRequest, res: ApiResponse): void {
 }
 
 function getMinDate(now = new Date()): Date {
-  const minMonth = now.getMonth() + MONTHS_AHEAD;
-  const minYear = minMonth > 11 ? now.getFullYear() + 1 : now.getFullYear();
-  const adjustedMonth = minMonth % 12;
-
-  return new Date(minYear, adjustedMonth, 1);
+  const parts = Object.fromEntries(
+    berlinDate.formatToParts(now).map(({ type, value }) => [type, value]),
+  );
+  // UTC arithmetic represents Berlin calendar dates, not appointment instants.
+  const date = new Date(Date.UTC(Number(parts.year), Number(parts.month) - 1, Number(parts.day)));
+  const daysUntilNextMonday = (8 - date.getUTCDay()) % 7 || 7;
+  date.setUTCDate(date.getUTCDate() + daysUntilNextMonday);
+  return date;
 }
 
 function formatDateKey(date: Date): string {
   return [
-    date.getFullYear(),
-    String(date.getMonth() + 1).padStart(2, "0"),
-    String(date.getDate()).padStart(2, "0"),
+    date.getUTCFullYear(),
+    String(date.getUTCMonth() + 1).padStart(2, "0"),
+    String(date.getUTCDate()).padStart(2, "0"),
   ].join("-");
 }
 
 function slotTimesForDate(date: Date): string[] {
-  const rule = SLOT_RULES.find((item) => item.weekday === date.getDay());
+  const rule = SLOT_RULES.find((item) => item.weekday === date.getUTCDay());
   if (!rule) return [];
 
   return rule.times;
 }
 
-function addMonthSlots(slots: SlotsByDate, year: number, month: number): void {
+function addMonthSlots(slots: SlotsByDate, year: number, month: number, minDate: Date): void {
   let published = 0;
-  const lastDay = new Date(year, month + 1, 0).getDate();
+  const lastDay = new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
 
   for (let day = 1; day <= lastDay; day++) {
     if (published >= MAX_SLOTS_PER_MONTH) return;
 
-    const date = new Date(year, month, day);
+    const date = new Date(Date.UTC(year, month, day));
+    if (date < minDate) continue;
     const times = slotTimesForDate(date);
     if (times.length === 0) continue;
 
@@ -77,12 +86,12 @@ export function getAvailableSlots(now = new Date()): SlotsByDate {
   const slots: SlotsByDate = {};
 
   for (let offset = 0; offset < MONTHS_TO_PUBLISH; offset++) {
-    const monthDate = new Date(
-      minDate.getFullYear(),
-      minDate.getMonth() + offset,
+    const monthDate = new Date(Date.UTC(
+      minDate.getUTCFullYear(),
+      minDate.getUTCMonth() + offset,
       1,
-    );
-    addMonthSlots(slots, monthDate.getFullYear(), monthDate.getMonth());
+    ));
+    addMonthSlots(slots, monthDate.getUTCFullYear(), monthDate.getUTCMonth(), minDate);
   }
 
   return slots;
