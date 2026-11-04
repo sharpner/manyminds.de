@@ -26,6 +26,20 @@ function page(fetcher, search = "") {
 const slots = { "2027-01-05": ["10:00"], "2027-02-02": ["10:00"] };
 const ok = (body) => new Response(JSON.stringify(body));
 
+test("project indicators match individually visible project entries in every category", () => {
+  const doc = new JSDOM(html).window.document;
+  const categories = doc.querySelectorAll(".case-notes details");
+  assert.equal(categories.length, 7);
+  for (const category of categories) {
+    const entries = [...category.querySelectorAll(".practice-examples > li")];
+    const count = Number.parseInt(category.querySelector(".case-count").textContent, 10);
+    const title = category.querySelector(".case-category").textContent;
+    assert.equal(count, entries.length, title);
+    const names = entries.map(entry => entry.querySelector("strong").textContent);
+    assert.equal(new Set(names).size, entries.length, `${title}: duplicate project`);
+  }
+});
+
 test("all local assets and fragment targets resolve, IDs are unique, semantic page landmarks exist", () => {
   const doc = new JSDOM(html).window.document;
   const ids = [...doc.querySelectorAll("[id]")].map((e) => e.id);
