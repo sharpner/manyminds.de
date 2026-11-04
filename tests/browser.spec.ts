@@ -251,3 +251,13 @@ test("product depth responds on desktop and stays still with reduced motion", as
   expect(response.status()).toBe(200);
   expect(response.headers()["content-type"]).toContain("image/png");
 });
+
+test("contact link keeps readable contrast when hovered on the tinted background", async ({ page }) => {
+  await page.goto("/");
+  await page.locator(".contact-email").hover();
+  const audit = await new AxeBuilder({ page })
+    .include("#contact")
+    .withTags(["wcag2aa"])
+    .analyze();
+  expect(audit.violations.map(item => item.id)).toEqual([]);
+});

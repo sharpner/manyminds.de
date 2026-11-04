@@ -18,14 +18,14 @@
 }
 :root {
   color-scheme: light;
-  --primary: #2944d8;
-  --primary-hover: #1d31aa;
-  --ink: #162336;
-  --muted: #566171;
-  --paper: #f7f8fa;
-  --tint: #eef1fa;
-  --line: #d9dfe7;
-  --dark: #142033;
+  --primary: #387899;
+  --primary-hover: #16324a;
+  --ink: #16324a;
+  --muted: #526572;
+  --paper: #eaf1f4;
+  --tint: #ddf4f9;
+  --line: #c1dee8;
+  --dark: #16324a;
   --gutter: clamp(22px, 5vw, 80px);
 }
 * {
@@ -70,7 +70,7 @@ a {
   text-underline-offset: 5px;
 }
 a:hover {
-  color: var(--primary);
+  color: var(--primary-hover);
 }
 button,
 input {
@@ -367,10 +367,11 @@ h1 {
 }
 .featured-project {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.75fr);
-  gap: clamp(48px, 7vw, 112px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: clamp(32px, 4vw, 64px);
+  align-items: center;
   margin-top: 48px;
-  padding: 32px 0 12px;
+  padding: 32px 0 40px;
   border-top: 1px solid var(--line);
 }
 .featured-project .section-kicker {
@@ -381,7 +382,8 @@ h1 {
   font-size: 0.75rem;
   margin-top: 8px;
 }
-.featured-project > div:last-child > p {
+.project-summary {
+  margin-top: 16px;
   color: var(--muted);
   font-size: 0.875rem;
   max-width: 560px;
@@ -395,12 +397,12 @@ h1 {
   line-height: 1.65;
 }
 .product-view {
-  margin-top: 32px;
+  margin: 0;
 }
 .product-view > a {
   display: block;
   position: relative;
-  padding: clamp(12px, 3vw, 40px);
+  padding: clamp(12px, 1.5vw, 24px);
   background: radial-gradient(ellipse at 70% 10%, #ffffff 0%, var(--tint) 70%);
   border: 1px solid var(--line);
   perspective: 1800px;
@@ -439,21 +441,6 @@ h1 {
   margin-top: 12px;
   color: var(--muted);
   font-size: 0.75rem;
-}
-.project-insights {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(24px, 6vw, 96px);
-  padding-block: 40px;
-}
-.project-insight .section-kicker {
-  margin-bottom: 12px;
-}
-.project-insight > p:last-child {
-  margin-top: 16px;
-  color: var(--muted);
-  font-size: 0.9375rem;
-  max-width: 58ch;
 }
 .case-notes {
   margin-bottom: 24px;
@@ -524,6 +511,20 @@ details[open] .detail-sign::after {
 .case-note-body p + p {
   margin-top: 16px;
 }
+.practice-examples {
+  margin: 0;
+  padding-left: 20px;
+}
+.practice-examples li + li {
+  margin-top: 14px;
+}
+.practice-examples strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+.practice-examples + p {
+  margin-top: 18px;
+}
 .working-principles {
   padding: 0;
   margin: 36px 0 0;
@@ -551,10 +552,6 @@ details[open] .detail-sign::after {
   font-size: 0.9375rem;
 }
 @media (max-width: 760px) {
-  .project-insights {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
   .case-notes summary > span:first-child {
     grid-template-columns: 1fr;
     gap: 8px;
@@ -779,7 +776,7 @@ h3 {
   background: none;
 }
 .calendar-day.available {
-  color: var(--primary);
+  color: var(--ink);
   background: var(--tint);
   font-weight: 500;
 }

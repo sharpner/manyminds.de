@@ -32,7 +32,7 @@ Die neue Positionierung stammt aus den ausdrücklichen Nutzerangaben vom 04.11.2
 - Die Website ist die aktuelle Inhaltsquelle; `agent-files/design-judge/copy-v1.txt` dokumentiert den vorausgegangenen redaktionellen Entwurf.
 - Die hervorgehobene Referenz ist auf Nutzerwunsch jetzt projectfit.ai. Bei DIE ZEIT steht ausdrücklich „Mitentwicklung“.
 - V2 vertieft projectfit.ai, die Performance-Anforderung der ZEIT Shop App auf günstigen Android-Geräten und Brainloops Anforderungen an sensible Daten. Grundlage sind die jeweiligen Projektseiten im Portfolio; Anforderungen werden nicht als gemessene Ergebnisse ausgegeben.
-- Die vertieften Beispiele sind nach App-Entwicklung, Backend-Entwicklung, technischer Beratung und KI-Entwicklung geordnet. Der KI-Leistungsumfang einschließlich Training, Embeddings und produktreifer Anwendungen stammt aus den ergänzenden Nutzerangaben; die konkreten projectfit-Beiträge bleiben gesondert durch das Portfolio belegt.
+- Die Themenübersicht deckt alle 14 Projektbeschreibungen des Portfolios ab: Apps, Web/E-Commerce, Backend, Cloud/Betrieb/Qualität, Sicherheit/Medizintechnik, Beratung/Teams und KI/Suche/Daten. Grüner Werkzeugkasten erscheint als Beratungsbeitrag, nicht als hervorgehobenes Hauptprojekt. Training, Embeddings und produktreife KI-Anwendungen stammen aus den ergänzenden Nutzerangaben; konkrete projectfit-Beiträge bleiben gesondert durch das Portfolio belegt. Die Zuordnung steht lokal in `agent-files/redesign-v2/portfolio-coverage.json`.
 - Die Produktansicht ist der vom Nutzer am 04.11.2026 bereitgestellte Screenshot, unverändert in `assets/projectfit/dashboard.png` (2498 × 2356 Pixel). Die Seite zeigt einen oberen Ausschnitt; der Vergrößerungslink öffnet das vollständige Original. Er ersetzt die deutlich kleinere Marketinggrafik der Produktwebsite. Keine generierte oder nachgezeichnete Oberfläche.
 - Die Arbeitsweise verbindet die Nutzerangaben zu User Journey, Performance, Sicherheit und Pragmatismus mit Zusammenarbeit, früher nutzbarer Software und Rückmeldungen aus dem [Agilen Manifest](https://agilemanifesto.org/iso/de/manifesto) und seinen [Prinzipien](https://agilemanifesto.org/iso/de/principles.html). Eigene Formulierung, keine behauptete Zertifizierung oder kopiertes Manifest.
 - Das Impressum liegt auf einer eigenen Seite `impressum.html`, direkt im Footer verlinkt und ohne JavaScript lesbar. Betreiber ist Nino Wagensonner persönlich. Der Nutzer wünscht ausdrücklich nur „85716 Unterschleißheim“ als Ortsangabe; Straße und Hausnummer fehlen weiterhin. Die Seite ist deshalb nicht als vollständiges geschäftliches Impressum abgenommen. Die Umsatzsteuer-ID stammt aus dem bisherigen persönlichen Impressum.
@@ -45,17 +45,18 @@ Die lokale Fassung nutzt eine eigene, reduzierte Gestaltung. Die politische Refe
 
 | Rolle | Wert |
 | --- | --- |
-| Primärfarbe | Kobalt `#2944D8` |
-| Hover | `#1D31AA` |
-| Text | `#162336` |
-| Sekundärtext | `#566171` |
-| Heller Hintergrund | `#F7F8FA` |
-| Kontaktfläche | `#EEF1FA` |
-| Linien | `#D9DFE7` |
-| Dunkler Abschnitt | `#142033` |
+| Primärfarbe | Portfolio-Blau `#387899` |
+| Hover | `#16324A` |
+| Text | `#16324A` |
+| Sekundärtext | `#526572` |
+| Heller Hintergrund | `#EAF1F4` |
+| Kontaktfläche | `#DDF4F9` |
+| Linien | `#C1DEE8` |
+| Dunkler Abschnitt | `#16324A` |
 | Schrift | Inter 400 / 500 / 700, lokal mit OFL-Lizenz |
 
 - Einheitliche Wortmarke „nino wagensonner.“ in Kopf und Fuß. Keine wechselnde Hauptmarke.
+- Farben und Favicon stammen aus dem bereitgestellten Portfolio. Das hochauflösende Originalmonogramm wurde aus der ersten PDF-Seite extrahiert; die ICO-Datei enthält Größen von 16 bis 256 Pixeln. Ein neuer PNG-Dateiname umgeht den Cache der zuvor verworfenen Fassung. Dunkelblau/Eisblau wurden aus dem Monogramm und das gedeckte Blau aus der gerenderten PDF-Seite übernommen; Sekundärtext und Hover sind für die Website abgestimmt.
 - Mittlere Schriftgewichte und großzügige Abstände; keine Work-Sans-Black-Schlagzeilen oder schrägen Akzentbalken.
 - Kreisförmiges Porträt nach Nutzerwunsch, vier konkrete Projektreferenzen und projectfit.ai als eigenes Produktbeispiel, vier Leistungsfelder, Arbeitsweise, GmbH/Forschung und Kontakt.
 - Maximal 1280px Inhaltsbreite, flexible Abstände, mobile Neuordnung.
