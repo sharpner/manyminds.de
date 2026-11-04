@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "outDir": "./agent-files/runtime-build",
+    "rootDir": "."
+  },
+  "include": ["api/**/*.ts"]
+}

@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "node --env-file-if-exists=.env.local --import tsx scripts/dev.ts",
-    "test": "node --import tsx --test tests/*.test.ts tests/*.test.mjs",
+    "test": "node --import tsx --test tests/*.test.ts tests/*.test.mjs && npm run test:runtime",
+    "test:runtime": "tsc -p tsconfig.runtime.json && node --test tests/runtime.test.cjs",
     "check": "tsc --noEmit && node --check script.js",
     "test:browser": "playwright test"
   },
