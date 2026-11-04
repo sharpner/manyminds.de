@@ -617,6 +617,12 @@ h3 {
 .approach .section-kicker {
   color: #bdc8dd;
 }
+.approach .editorial-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+}
+.approach .working-principles {
+  margin-top: 0;
+}
 
 .approach h2 {
   font-size: clamp(2rem, 3.1vw, 3rem);
@@ -1094,7 +1100,11 @@ h3 {
   }
 
   .approach .editorial-grid {
+    grid-template-columns: 1fr;
     gap: 0;
+  }
+  .approach .working-principles {
+    margin-top: 36px;
   }
   .lead {
     font-size: 1rem;
