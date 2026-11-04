@@ -3,7 +3,7 @@ const translations = {
   en: {
     "case.imageAlt": "projectfit.ai: dashboard with project suggestions and matching skills",
     "case.zoom": "Enlarge view ↗",
-    "case.caption": "Inside the product · Published example screen from projectfit.ai",
+    "case.caption": "projectfit.ai · Project overview",
     "case.questionLabel": "The challenge",
     "case.question": "Which projects are a real fit?",
     "case.problem": "Freelancers need to find suitable opportunities among many listings. projectfit.ai matches skills and preferences with project requirements. The central challenge is understanding what someone can do, even when the project uses different terms.",

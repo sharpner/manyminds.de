@@ -32,7 +32,7 @@ Die neue Positionierung stammt aus den ausdrücklichen Nutzerangaben vom 04.11.2
 - Die Website ist die aktuelle Inhaltsquelle; `agent-files/design-judge/copy-v1.txt` dokumentiert den vorausgegangenen redaktionellen Entwurf.
 - Die hervorgehobene Referenz ist auf Nutzerwunsch jetzt projectfit.ai. Bei DIE ZEIT steht ausdrücklich „Mitentwicklung“.
 - V2 vertieft projectfit.ai, die Performance-Anforderung der ZEIT Shop App auf günstigen Android-Geräten und Brainloops Anforderungen an sensible Daten. Grundlage sind die jeweiligen Projektseiten im Portfolio; Anforderungen werden nicht als gemessene Ergebnisse ausgegeben.
-- Die Produktansicht stammt aus `https://projectfit.ai/assets/home/hero-dashboard.jpg`, der öffentlich veröffentlichten Beispielansicht. Optimierte lokale WebP-Varianten liegen in `assets/projectfit/`; das Bild ist ausdrücklich als Beispielansicht bezeichnet und kein Live-Dashboard.
+- Die Produktansicht ist der vom Nutzer am 04.11.2026 bereitgestellte Screenshot, unverändert in `assets/projectfit/dashboard.png` (2498 × 2356 Pixel). Die Seite zeigt einen oberen Ausschnitt; der Vergrößerungslink öffnet das vollständige Original. Er ersetzt die deutlich kleinere Marketinggrafik der Produktwebsite. Keine generierte oder nachgezeichnete Oberfläche.
 - Die Arbeitsweise verbindet die Nutzerangaben zu User Journey, Performance, Sicherheit und Pragmatismus mit Zusammenarbeit, früher nutzbarer Software und Rückmeldungen aus dem [Agilen Manifest](https://agilemanifesto.org/iso/de/manifesto) und seinen [Prinzipien](https://agilemanifesto.org/iso/de/principles.html). Eigene Formulierung, keine behauptete Zertifizierung oder kopiertes Manifest.
 - Das Impressum liegt auf einer eigenen Seite `impressum.html`, direkt im Footer verlinkt und ohne JavaScript lesbar. Betreiber ist Nino Wagensonner persönlich. Der Nutzer wünscht ausdrücklich nur „85716 Unterschleißheim“ als Ortsangabe; Straße und Hausnummer fehlen weiterhin. Die Seite ist deshalb nicht als vollständiges geschäftliches Impressum abgenommen. Die Umsatzsteuer-ID stammt aus dem bisherigen persönlichen Impressum.
 
@@ -58,6 +58,7 @@ Die lokale Fassung nutzt eine eigene, reduzierte Gestaltung. Die politische Refe
 - Mittlere Schriftgewichte und großzügige Abstände; keine Work-Sans-Black-Schlagzeilen oder schrägen Akzentbalken.
 - Kreisförmiges Porträt nach Nutzerwunsch, vier konkrete Projektreferenzen und projectfit.ai als eigenes Produktbeispiel, vier Leistungsfelder, Arbeitsweise, GmbH/Forschung und Kontakt.
 - Maximal 1280px Inhaltsbreite, flexible Abstände, mobile Neuordnung.
+- Mobil stehen das kompakte Kreisporträt und die Berufserfahrung nebeneinander. Kundenreferenzen bilden einzelne Logo-/Textzeilen. Die Produktansicht bleibt auf Touchgeräten gerade; ein leichter 3D-Hover-/Fokuseffekt ist auf größere Geräte mit Maus und ohne reduzierte Bewegung beschränkt.
 - Native Tastaturbedienung, Skip-Link, Fokusführung, Formularzustände und echtes Kalender-API bleiben erhalten.
 - Ohne JavaScript sind Text, Navigation, Portfolio und E-Mail nutzbar. EN per `?lang=en` oder Sprachschalter.
 - Browserprüfungen bei 320/390/768/1440/1920px, 200% Textgröße und reduzierter Bewegung. Axe ergänzt die Sichtprüfung, zertifiziert keine vollständige WCAG-Konformität.

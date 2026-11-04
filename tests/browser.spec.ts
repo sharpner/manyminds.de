@@ -238,3 +238,16 @@ test("reduced motion disables smooth scrolling", async ({ page }) => {
     ),
   ).toBe("auto");
 });
+
+test("product depth responds on desktop and stays still with reduced motion", async ({ page }) => {
+  await page.goto("/");
+  const link = page.locator(".product-view > a");
+  const screen = page.locator(".product-screen");
+  await link.hover();
+  await expect.poll(() => screen.evaluate(node => getComputedStyle(node).transform)).not.toBe("none");
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect.poll(() => screen.evaluate(node => getComputedStyle(node).transform)).toBe("none");
+  const response = await page.request.get(await link.getAttribute("href") as string);
+  expect(response.status()).toBe(200);
+  expect(response.headers()["content-type"]).toContain("image/png");
+});
