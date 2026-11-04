@@ -166,7 +166,7 @@ function generateICalEvent(
     `DTSTAMP:${dtstamp}`,
     `DTSTART;TZID=Europe/Berlin:${formatICalDateTime(...start)}`,
     `DTEND;TZID=Europe/Berlin:${formatICalDateTime(...end)}`,
-    `SUMMARY:Erstgespräch KI Beratung`,
+    "SUMMARY:Erstgespräch mit Nino Wagensonner",
     `DESCRIPTION:${description}\\nEmail: ${escapedEmail}`,
     `ORGANIZER;CN=Nino Wagensonner:mailto:n.wagensonner@manyminds.de`,
     `ATTENDEE;CN="${escapedNameParameter}";RSVP=TRUE:${mailtoAddress}`,
