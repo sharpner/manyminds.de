@@ -164,7 +164,7 @@ test("English including new sections and calendar, then exact German restoration
     "Please choose a day.",
   );
   await page.locator("#langToggle").click();
-  await expect(page.locator("h1")).toContainText("und produktreife KI.");
+  await expect(page.locator("h1")).toContainText("und produktreife AI.");
   await expect(page.locator("#services .section-kicker")).toContainText(
     "Leistungen",
   );

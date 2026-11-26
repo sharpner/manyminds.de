@@ -1,11 +1,11 @@
-# Nino Wagensonner — Software, Architektur und produktreife KI
+# Nino Wagensonner — Software, Architektur und produktreife AI
 
 Technischer Generalist mit über 18 Jahren Erfahrung in Softwareentwicklung und Architektur, vom Startup-Prototyp bis zum Konzern-System. Die berufliche Laufbahn beginnt 2009 mit der Ausbildung zum Fachinformatiker für Anwendungsentwicklung.
 
 ## Leistungen
 - Architektur & technische Entscheidungen: Bestandssysteme analysieren, Optionen realistisch bewerten und belastbare Roadmaps entwickeln.
 - Entwicklung von Apps, Web & Backends: API-Architektur, moderne Web- und Mobile-Apps sowie stabiler Betrieb in der Cloud.
-- Produktreife KI-Anwendungen: Kontrollierbare, messbare und robuste LLM-Anwendungen für den Produktivbetrieb, inklusive Workflows, Modellauswahl, Training und Embeddings.
+- Produktreife AI-Anwendungen: Kontrollierbare, messbare und robuste LLM-Anwendungen für den Produktivbetrieb, inklusive Workflows, Modellauswahl, Training und Embeddings.
 - Sparring & Verstärkung für Teams: Einstieg in laufende Projekte, Lösung technischer Engpässe, Architekturarbeit und Code-Reviews.
 
 ## Projekterfahrung

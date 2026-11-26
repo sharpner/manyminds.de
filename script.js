@@ -268,7 +268,7 @@ function setLanguage(lang) {
   document.title =
     lang === "en"
       ? "Nino Wagensonner — Software, architecture and production AI"
-      : "Nino Wagensonner — Software, Architektur und produktreife KI";
+      : "Nino Wagensonner — Software, Architektur und produktreife AI";
   renderCalendar();
   renderTimes();
   updateCalendarStatus();
