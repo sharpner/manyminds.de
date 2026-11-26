@@ -1,19 +1,19 @@
-# Nino Wagensonner — Technische Beratung und Umsetzung
+# Nino Wagensonner — Software, Architektur und produktreife KI
 
-Technischer Generalist. Fast 20 Jahre Berufserfahrung mit Software und IT aus unterschiedlichen Projekten, Branchen und Rollen. Die berufliche Laufbahn beginnt 2009 mit der Ausbildung zum Fachinformatiker für Anwendungsentwicklung.
+Technischer Generalist mit über 18 Jahren Erfahrung in Softwareentwicklung und Architektur, vom Startup-Prototyp bis zum Konzern-System. Die berufliche Laufbahn beginnt 2009 mit der Ausbildung zum Fachinformatiker für Anwendungsentwicklung.
 
 ## Leistungen
-- Technische Entscheidungen: Software prüfen, Möglichkeiten einordnen, nächste Schritte erarbeiten.
-- Entwicklung und Umsetzung: Anwendungen entwickeln, Systeme verbinden, bestehende Software modernisieren.
-- Produktreife KI-Anwendungen: LLM-Verständnis, Workflows, Modellauswahl, Training und Embeddings mit Softwareentwicklung, Integration und Betrieb verbinden.
-- Zusammenarbeit mit Teams: in Projekte einsteigen, technische Fragen klären, Wissen teilen.
+- Architektur & technische Entscheidungen: Bestandssysteme analysieren, Optionen realistisch bewerten und belastbare Roadmaps entwickeln.
+- Entwicklung von Apps, Web & Backends: API-Architektur, moderne Web- und Mobile-Apps sowie stabiler Betrieb in der Cloud.
+- Produktreife KI-Anwendungen: Kontrollierbare, messbare und robuste LLM-Anwendungen für den Produktivbetrieb, inklusive Workflows, Modellauswahl, Training und Embeddings.
+- Sparring & Verstärkung für Teams: Einstieg in laufende Projekte, Lösung technischer Engpässe, Architekturarbeit und Code-Reviews.
 
 ## Projekterfahrung
-- freenet: GraphQL- und API-Architektur.
-- DIE ZEIT: Mitentwicklung der ZEIT Shop App, Shopware-Anbindung, automatisierte Veröffentlichung.
-- Brainloop: sichere Datenräume, Microservices und Migration sensibler Daten.
-- aidhere: App- und Backend-Entwicklung, Team-Mentoring.
-- projectfit.ai: Mitgründer, Produktentwicklung, LLM- und Prompt Engineering, Matching von Fähigkeiten und Projekten.
+- freenet: Architektur und Weiterentwicklung des zentralen GraphQL-Proxys, API-Design und Datenmodellierung.
+- DIE ZEIT: Entwicklung der ZEIT Shop App mit Shopware-Anbindung und automatisierten Releases für iOS und Android.
+- Brainloop: Microservices, sichere Datenräume und konsistente Migration hochsensibler Kundendaten.
+- aidhere: App- und Backend-Entwicklung für regulierte Gesundheitsanwendungen sowie technisches Mentoring des Entwicklungsteams.
+- projectfit.ai: Mitgründer, Produkt- und Frontend-Entwicklung (TypeScript, React), LLM- und Prompt Engineering, semantisches Projektmatching.
 
 Projektrollen sind im Portfolio dokumentiert und keine Kundentestimonials.
 

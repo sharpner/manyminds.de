@@ -101,7 +101,7 @@ test("calendar and language work without local storage; month changes clear old 
   assert.equal(doc.documentElement.lang, "en");
   assert.match(doc.getElementById("calendarMonth").textContent, /February/);
   doc.getElementById("langToggle").click();
-  assert.match(doc.querySelector("h1").textContent, /Technische Beratung/);
+  assert.match(doc.querySelector("h1").textContent, /Software, Architektur/);
   doc.getElementById("mobileToggle").click();
   assert.equal(
     doc.getElementById("mobileToggle").getAttribute("aria-expanded"),
@@ -169,8 +169,8 @@ test("booking failure retains form and retry; success requires positive server r
 
 test("new positioning is consistent across visible copy and metadata without the disproved claims", () => {
   const doc = new JSDOM(html).window.document;
-  assert.match(doc.querySelector("h1").textContent, /Technische Beratung/);
-  assert.match(doc.querySelector(".experience").textContent, /20/);
+  assert.match(doc.querySelector("h1").textContent, /Software, Architektur/);
+  assert.match(doc.querySelector(".experience").textContent, /18\+/);
   assert.match(doc.querySelector("#approach").textContent, /Generalist/);
   assert.match(doc.title, /Nino Wagensonner/);
   for (const content of [
@@ -202,7 +202,7 @@ test("every translated element has an English entry and German is restored", asy
     assert.ok(translated[node.dataset.i18n], node.dataset.i18n);
   }
   dom.window.document.getElementById("langToggle").click();
-  assert.match(dom.window.document.title, /Technical consulting/);
+  assert.match(dom.window.document.title, /Software, architecture/);
   dom.window.document.getElementById("langToggle").click();
   nodes.forEach((node, index) => assert.equal(node.innerHTML, before[index]));
 });

@@ -1,19 +1,19 @@
-# Nino Wagensonner — Technical consulting and delivery
+# Nino Wagensonner — Software, architecture and production AI
 
-Technical generalist with almost 20 years of professional experience in software and IT across different projects, industries and roles. His professional career began in 2009 with an apprenticeship in software development.
+Technical generalist with 18+ years of experience in software engineering and architecture, from startup prototypes to enterprise systems. His professional career began in 2009 with an apprenticeship in software development.
 
 ## Services
-- Technical decisions: assessing software, weighing options and planning next steps.
-- Development and delivery: developing applications, connecting systems and modernising existing software.
-- Production-ready AI applications: combining LLM expertise, workflows, model selection, training and embeddings with software engineering, integration and operations.
-- Working with teams: joining projects, resolving technical questions and sharing knowledge.
+- Architecture & technical decisions: reviewing existing systems, weighing options realistically and building solid roadmaps.
+- Apps, web & backend engineering: API architecture, modern web and mobile apps and reliable cloud operations.
+- Production-ready AI applications: controllable, measurable and robust LLM applications for production, including workflows, model selection, training and embeddings.
+- Sparring & support for teams: joining ongoing projects, resolving technical bottlenecks, architecture work and code reviews.
 
 ## Project experience
-- freenet: GraphQL and API architecture.
-- DIE ZEIT: contribution to the development of the ZEIT Shop app, Shopware integration and automated releases.
-- Brainloop: secure data rooms, microservices and sensitive data migration.
-- aidhere: app and backend development, team mentoring.
-- projectfit.ai: co-founder, product development, LLM and prompt engineering, matching skills with projects.
+- freenet: architecture and evolution of the central GraphQL proxy, API design and data modelling.
+- DIE ZEIT: development of the ZEIT Shop app with Shopware integration and automated iOS and Android releases.
+- Brainloop: microservices, secure data rooms and consistent migration of highly sensitive customer data.
+- aidhere: app and backend engineering for regulated healthcare applications and technical mentoring of the development team.
+- projectfit.ai: co-founder, product and frontend development (TypeScript, React), LLM and prompt engineering, semantic project matching.
 
 The portfolio documents project contributions, not customer testimonials.
 

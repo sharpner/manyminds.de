@@ -66,52 +66,52 @@ const translations = {
     "case.imageAlt": "projectfit.ai: dashboard with project suggestions and matching skills",
     "case.zoom": "Enlarge view ↗",
     "case.caption": "projectfit.ai · Project overview",
-    "case.problem": "projectfit.ai matches IT freelancers’ skills and preferences with project requirements. The challenge is finding suitable projects even when the same skill is described in different terms.",
-    "case.detail": "As a co-founder, I work on product development, LLM and prompt engineering and integration in TypeScript and React. My work also includes sales and business development.",
-    "principle.0.title": "Start with the user journey.",
-    "principle.0.text": "What do people want to achieve with the software? Where do they lose time or get stuck? I walk through the process with you. Together, we establish what the solution needs to do.",
+    "case.problem": "Keyword search fails in recruiting because the same skill is described differently from project to project. projectfit.ai solves this semantically, matching freelancers and project requirements with precision.",
+    "case.detail": "As co-founder, I lead product and frontend development (TypeScript, React) as well as LLM and prompt engineering, alongside sales and customer feedback. I bring this product perspective directly into my consulting work.",
+    "principle.0.title": "Start with the real problem.",
+    "principle.0.text": "Before talking about technology, we look at your users’ day-to-day reality: where is time lost, where do workflows break down? That defines what the software actually needs to do.",
     "principle.1.title": "Choose technology for the task.",
-    "principle.1.text": "Usability, performance, security and operations all inform my technology choices. I assess what can be reused and which solution your team can maintain over time.",
-    "principle.2.title": "Use it early and improve it together.",
-    "principle.2.text": "We put a usable version into users’ hands early. Their feedback shows where we are on track and what needs to change. What we learn informs the next steps.",
+    "principle.1.text": "Not every new technology solves a real problem. I choose solutions based on what can be sensibly reused and what your team can operate later without external dependency.",
+    "principle.2.title": "Test early, refine deliberately.",
+    "principle.2.text": "Instead of specifying in isolation for months, we put a usable version into real hands early. Feedback from real use guides the next steps.",
     portfolio: "View portfolio (PDF)",
-    "case.kicker": "Building our own product",
+    "case.kicker": "Own product",
     "case.context": "AI-powered project matching for IT freelancers",
     "case.link": "View the project in my portfolio",
-    "service.0.title": "Technical decisions",
+    "service.0.title": "Architecture & technical decisions",
     "service.0.text":
-      "What can you keep? What needs to change? I assess your software, weigh the options and work with you on the next steps.",
-    "service.1.title": "Development and delivery",
+      "Planning a modernisation, hitting scaling limits or looking for a second opinion? I review existing systems, weigh options realistically and work with you on a solid roadmap.",
+    "service.1.title": "Apps, web & backend engineering",
     "service.1.text":
-      "I develop applications, connect systems and modernise existing software — from architecture to code.",
+      "I do not just advise on slides, I help build it: from API architecture and modern web or mobile apps to reliable cloud operations.",
     "service.2.title": "Production-ready AI applications",
     "service.2.text":
-      "I understand LLMs technically and in practical use. I build applications with the quality you expect from enterprise software: usable, controllable and reliable in operation.",
-    "service.3.title": "Working with your team",
+      "There is a big gap between an impressive AI prototype and dependable software. I build LLM applications that are controllable, measurable and robust enough for production.",
+    "service.3.title": "Sparring & support for your team",
     "service.3.text":
-      "I join ongoing projects, resolve technical questions and share my knowledge through working together.",
+      "I join ongoing projects, resolve technical bottlenecks and pass on knowledge through architecture work, code reviews and day-to-day collaboration.",
     "client.freenet":
-      "GraphQL and API architecture, consulting on interfaces and data models.",
+      "Architecture and evolution of the central GraphQL proxy, including API design, data modelling and reliable integration of multiple backends.",
     "client.zeit":
-      "Contribution to the development of the ZEIT Shop app, including Shopware integration and automated releases for iOS and Android.",
+      "Development of the ZEIT Shop app with Shopware integration, automated iOS and Android releases, and smooth performance even on budget devices.",
     "client.brainloop":
-      "Work on secure data rooms, microservices and sensitive data migration.",
+      "Microservices, secure data rooms and consistent migration of highly sensitive customer data under strict security requirements.",
     "client.aidhere":
-      "App and backend development, alongside mentoring the development team.",
+      "App and backend engineering for regulated healthcare applications, alongside technical mentoring of the development team.",
     "nav.services": "Services",
     "nav.references": "Projects",
     "nav.approach": "Approach",
     "nav.research": "Research",
     "nav.contact": "Contact",
-    "hero.eyebrow": "Nino Wagensonner · Consulting & development",
+    "hero.eyebrow": "Nino Wagensonner · Software, architecture & AI",
     "hero.title":
-      'Technical consulting<br><span class="accent">and delivery.</span>',
+      'Software, architecture<br><span class="accent">and production AI.</span>',
     "hero.intro":
-      "I enjoy working with people who want to make a difference, in startups and established businesses alike. I consider the whole picture, from the business model and technology to everyday use. Together, we turn good ideas into thoughtfully designed products.",
+      "I support companies and product teams where technical decisions become expensive in the long run: architecture, engineering and production AI. I think from the business model down to the code and build software your team can maintain and evolve.",
     "hero.cta": "Discuss your project",
-    "hero.years": "Almost 20",
+    "hero.years": "18+",
     "hero.experience":
-      "Years of professional experience in software and IT. Across different projects, industries and roles.",
+      "Years of experience in software engineering and architecture, from startup prototypes to enterprise systems.",
     "hero.location": "Munich · Remote & on-site",
     "references.kicker": "Project experience",
     "references.note": "Selected work",
@@ -119,26 +119,26 @@ const translations = {
     "services.kicker": "Services",
     "services.title": "How I can<br>help you.",
     "approach.kicker": "Approach",
-    "approach.title": "Understand thoroughly<br>and deliver pragmatically.",
+    "approach.title": "A direct path to<br>a professional solution.",
     "approach.text":
-      "I am a technical generalist. I look at how the parts fit together and go into detail where it matters. My experience spans apps and backend systems, infrastructure and AI.",
-    "approach.aiLabel": "AI for your product development",
+      "As a technical generalist, I see the whole picture from user interfaces, backends and infrastructure to AI models, and go deep where it matters most for your project.",
+    "approach.aiLabel": "AI in our collaboration",
     "approach.ai":
-      "I combine AI with my expertise where it makes sense. My focus is the best outcome for you and your users.",
+      "I use modern AI tools across the development process for analysis, prototyping and code. That speeds up delivery, while architecture and quality decisions stay firmly in experienced hands.",
     "research.kicker": "Products & research",
     "company.description":
-      "Through my company, Isar Innovations, I develop software products.",
+      "Through my company, Isar Innovations, I build my own software products. Building and running products yourself leads to more realistic consulting decisions.",
     "company.link": "Visit the company",
     "research.title": "Research",
     "research.intro":
-      "Our research explores how AI agents work on problems and how large collections of skill labels can be organised.",
+      "Alongside client work, we research practical questions in applied AI: how AI agents discover genuinely novel solutions, and how large, inconsistent skill databases can be structured reliably.",
     "research.all": "All research papers",
     "contact.kicker": "Contact",
     "contact.title": "What are you<br>working on?",
     "contact.intro":
-      "Tell me about your project or the technical question you are working through. In our first conversation, we will discuss how I can help.",
+      "Tell me briefly about your project or the technical question on your mind. In a non-binding introductory call (around 30 minutes), we will see whether and how I can help.",
     "contact.location": "Unterschleissheim near Munich · Remote & on-site",
-    "footer.role": "Technical consulting and delivery",
+    "footer.role": "Software, architecture and production AI",
     "contact.bookTitle": "Arrange a conversation",
     "modal.title": "Request an appointment",
     "modal.name": "Name *",
@@ -267,8 +267,8 @@ function setLanguage(lang) {
   );
   document.title =
     lang === "en"
-      ? "Nino Wagensonner — Technical consulting and delivery"
-      : "Nino Wagensonner — Technische Beratung und Umsetzung";
+      ? "Nino Wagensonner — Software, architecture and production AI"
+      : "Nino Wagensonner — Software, Architektur und produktreife KI";
   renderCalendar();
   renderTimes();
   updateCalendarStatus();

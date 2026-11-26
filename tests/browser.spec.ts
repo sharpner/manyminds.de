@@ -34,7 +34,7 @@ for (const width of [320, 1440]) {
       .first()
       .click();
     await expect(page.getByRole("heading", { level: 1 })).toContainText(
-      "Technische Beratung",
+      "Software, Architektur",
     );
   });
 }
@@ -53,7 +53,7 @@ for (const width of [320, 390, 768, 1440, 1920]) {
       ),
     ).toBe(true);
     await expect(page.getByRole("heading", { level: 1 })).toContainText(
-      "Technische Beratung",
+      "Software, Architektur",
     );
     if (width < 761) {
       const brand = await page.locator(".site-header .brand").boundingBox();
@@ -164,7 +164,7 @@ test("English including new sections and calendar, then exact German restoration
     "Please choose a day.",
   );
   await page.locator("#langToggle").click();
-  await expect(page.locator("h1")).toContainText("und Umsetzung.");
+  await expect(page.locator("h1")).toContainText("und produktreife KI.");
   await expect(page.locator("#services .section-kicker")).toContainText(
     "Leistungen",
   );
@@ -203,14 +203,14 @@ test("project insights work by keyboard and remain open when changing language",
   await expect(detail.locator(".case-note-body")).toBeVisible();
   const productImage = page.locator(".product-view img");
   await expect(productImage).toHaveAttribute("alt", "projectfit.ai: dashboard with project suggestions and matching skills");
-  await expect(page.locator(".working-principles")).toContainText("Start with the user journey.");
+  await expect(page.locator(".working-principles")).toContainText("Start with the real problem.");
   await productImage.scrollIntoViewIfNeeded();
   await expect(productImage).toBeVisible();
   expect(await productImage.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
   await page.locator("#langToggle").click();
   await expect(detail).toContainText("günstigen Android-Geräten");
   await expect(productImage).toHaveAttribute("alt", "projectfit.ai: Dashboard mit Projektvorschlägen und zugeordneten Fähigkeiten");
-  await expect(page.locator(".working-principles")).toContainText("Beim Nutzungsweg anfangen.");
+  await expect(page.locator(".working-principles")).toContainText("Beim echten Problem anfangen.");
 });
 
 test("200% text size and increased spacing reflow without clipping", async ({
